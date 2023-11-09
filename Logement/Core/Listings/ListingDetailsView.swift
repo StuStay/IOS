@@ -49,7 +49,7 @@ struct ListingDetailView: View {
                     HStack(spacing: 2) {
                         Image(systemName: "star.fill")
                         Text("4.86 - 28 reviews")
-                            .underline()        
+                            .underline()    
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
                     }

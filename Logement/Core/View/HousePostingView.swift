@@ -1,12 +1,19 @@
 import SwiftUI
+import MapKit
 
 struct HousePostingView: View {
     @State private var houseTitle = ""
     @State private var houseDescription = ""
-    @State private var numberOfRooms = 1
+    @State private var hasWiFi = false
+    @State private var hasSecure = false
+    @State private var hasTV = false
+    @State private var hasParking = false
     @State private var price = ""
     @State private var selectedImage: Image?
     @State private var isImagePickerPresented = false
+    @State private var isShowingMessage = false
+    @State private var selectedLocation: CLLocationCoordinate2D?
+    @State private var selectedRegion: MKCoordinateRegion?
 
     var body: some View {
         NavigationView {
@@ -17,11 +24,45 @@ struct HousePostingView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                         TextField("Description", text: $houseDescription)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                        Stepper("Number of Rooms: \(numberOfRooms)", value: $numberOfRooms, in: 1...10)
-                            .labelsHidden()
+                        Toggle("Wi-Fi", isOn: $hasWiFi)
+                            .toggleStyle(CustomToggleStyle())
+                        Toggle("Security", isOn: $hasSecure)
+                            .toggleStyle(CustomToggleStyle())
+                        Toggle("TV", isOn: $hasTV)
+                            .toggleStyle(CustomToggleStyle())
+                        Toggle("Parking", isOn: $hasParking)
+                            .toggleStyle(CustomToggleStyle())
                         TextField("Price per Night", text: $price)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.numberPad)
+                    }
+
+                    Section(header: Text("Location")) {
+                        if let selectedLocation = selectedLocation,
+                           let selectedRegion = selectedRegion {
+                            Text("Selected Location")
+                                .font(.headline)
+                                .foregroundColor(.blue)
+                            Text("Latitude: \(selectedLocation.latitude)")
+                            Text("Longitude: \(selectedLocation.longitude)")
+                            Text("Region")
+                                .font(.headline)
+                                .foregroundColor(.blue)
+                            Text("Latitude Delta: \(selectedRegion.span.latitudeDelta)")
+                            Text("Longitude Delta: \(selectedRegion.span.longitudeDelta)")
+                        }
+
+                        Button(action: {
+                            isImagePickerPresented.toggle()
+                        }) {
+                            Text("Select Location")
+                                .foregroundColor(.blue)
+                                .padding()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.blue, lineWidth: 1)
+                                )
+                        }
                     }
 
                     Section(header: Text("Upload Images")) {
@@ -53,8 +94,7 @@ struct HousePostingView: View {
 
                     Section {
                         Button(action: {
-                            // Implement the logic to post the house
-                            // You can use the gathered data like houseTitle, houseDescription, numberOfRooms, price, etc.
+                            isShowingMessage = true
                         }) {
                             Text("Post House")
                                 .foregroundColor(.white)
@@ -68,6 +108,13 @@ struct HousePostingView: View {
                 .padding()
             }
             .navigationTitle("Post Your House")
+            .alert(isPresented: $isShowingMessage) {
+                Alert(
+                    title: Text("House Posted"),
+                    message: Text("Thank you for posting your house!"),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
     }
 
@@ -84,5 +131,17 @@ struct HousePostingView: View {
 struct HousePostingView_Previews: PreviewProvider {
     static var previews: some View {
         HousePostingView()
+    }
+}
+
+struct CustomToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            Toggle("", isOn: configuration.$isOn)
+                .labelsHidden()
+                .toggleStyle(SwitchToggleStyle(tint: .cyan))
+        }
     }
 }
