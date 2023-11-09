@@ -14,9 +14,14 @@ struct HousePostingView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Section(header: Text("House Details")) {
                         TextField("House Title", text: $houseTitle)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                         TextField("Description", text: $houseDescription)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                         Stepper("Number of Rooms: \(numberOfRooms)", value: $numberOfRooms, in: 1...10)
+                            .labelsHidden()
                         TextField("Price per Night", text: $price)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
                     }
 
                     Section(header: Text("Upload Images")) {
@@ -27,8 +32,16 @@ struct HousePostingView: View {
                                 .frame(height: 200)
                                 .cornerRadius(12)
                         } else {
-                            Button("Upload Image") {
+                            Button(action: {
                                 isImagePickerPresented.toggle()
+                            }) {
+                                Text("Upload Image")
+                                    .foregroundColor(.blue)
+                                    .padding()
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.blue, lineWidth: 1)
+                                    )
                             }
                             .fileImporter(
                                 isPresented: $isImagePickerPresented,
@@ -39,11 +52,17 @@ struct HousePostingView: View {
                     }
 
                     Section {
-                        Button("Post House") {
+                        Button(action: {
                             // Implement the logic to post the house
                             // You can use the gathered data like houseTitle, houseDescription, numberOfRooms, price, etc.
+                        }) {
+                            Text("Post House")
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(8)
                         }
-                        .buttonStyle(PrimaryButtonStyle())
                     }
                 }
                 .padding()
@@ -65,21 +84,5 @@ struct HousePostingView: View {
 struct HousePostingView_Previews: PreviewProvider {
     static var previews: some View {
         HousePostingView()
-    }
-}
-
-struct PrimaryButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .frame(maxWidth: .infinity)
-            .padding()
-            .foregroundColor(.white)
-            .background(configuration.isPressed ? Color.blue.opacity(0.8) : Color.blue)
-            .cornerRadius(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.blue, lineWidth: 2)
-                    .opacity(configuration.isPressed ? 0 : 1)
-            )
     }
 }
