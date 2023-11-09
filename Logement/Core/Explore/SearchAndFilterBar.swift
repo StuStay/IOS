@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct SearchAndFilterBar: View {
+    @State private var showAdvancedSearch = false
+
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
-            
+
             VStack(alignment: .leading, spacing: 2) {
                 Text("Where to?")
                     .font(.footnote)
@@ -13,12 +15,18 @@ struct SearchAndFilterBar: View {
                     .font(.caption)
                     .foregroundStyle(.gray)
             }
-            
+
             Spacer()
-            
-            Button(action: {}) {
+
+            Button(action: {
+                showAdvancedSearch.toggle()
+            }) {
                 Image(systemName: "line.3.horizontal.decrease.circle")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.cyan)
+            }
+            .sheet(isPresented: $showAdvancedSearch) {
+                // Incomplete
+                Text("Advanced Search View")
             }
         }
         .padding(.horizontal)
@@ -37,3 +45,7 @@ struct SearchAndFilterBar_Previews: PreviewProvider {
         SearchAndFilterBar()
     }
 }
+
+
+
+

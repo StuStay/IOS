@@ -17,15 +17,15 @@ struct ListingItemView: View {
             HStack(alignment: .top) {
                 // details
                 VStack(alignment: .leading) {
-                    Text("Miami, Florida")
+                    Text("Ariana, Tunis")
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
-                    Text("12 mi away")
+                    Text("Cite El Ghazella")
                         .foregroundStyle(.gray)
                     Text("Nov 3 - 10")
                         .foregroundStyle(.gray)
                     HStack(spacing: 4) {
-                        Text("$567")
+                        Text("DT56")
                             .fontWeight(.semibold)
                         Text("night")
                     }
