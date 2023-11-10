@@ -64,94 +64,101 @@ struct Payment: Identifiable {
     var method: String
     var numberOfRoomates: Int
     var isRecurringPayment: Bool
-    var recurringPaymentFrequency:String
-
+    var recurringPaymentFrequency: String
 }
 
 struct PaymentDetailEditView: View {
     @State private var editedPayment: Payment
+    @State private var navigateToStripePaymentSheetView = false
     @State private var showAlert = false
     @Environment(\.presentationMode) var presentationMode
 
-    
     var onSave: (Payment) -> Void
 
-    init(payment: Payment = Payment(amount: "", date: Date(), method: "Credi Card", numberOfRoomates: 1, isRecurringPayment: false, recurringPaymentFrequency: "Monthly" ), onSave: @escaping (Payment) -> Void) {
+    init(payment: Payment = Payment(amount: "", date: Date(), method: "Cash", numberOfRoomates: 1, isRecurringPayment: false, recurringPaymentFrequency: "Monthly" ), onSave: @escaping (Payment) -> Void) {
         _editedPayment = State(initialValue: payment)
         self.onSave = onSave
     }
 
     var body: some View {
-        Form {
-            Section(header: Text("Payment Information").font(.headline).foregroundColor(.blue)) {
-                Text("Payment Amount:")
-                    .font(.headline)
-
-                TextField("Enter Payment Amount", text: $editedPayment.amount)
-                    .padding(2)
-                
-                Text("Payment Date:")
-                    .font(.headline)
-                DatePicker("Select Payment Date", selection: $editedPayment.date, displayedComponents: .date)
-                    .padding(2)
-                
-                Text("Payment Method:")
-                    .font(.headline)
-                Picker("Select Payment Method", selection: $editedPayment.method){
-                    Text("Credit Card").tag("Credit Card")
-                    Text("Bank Transfer").tag("Bank Transfer")
-                }
-                .padding(2)
-                
-                Text("Number of Roomates:")
-                    .font(.headline)
-                Stepper(value: $editedPayment.numberOfRoomates, in: 1...10) {
-                    Text("\(editedPayment.numberOfRoomates) Roomates")
-                }
-                
-                Toggle(isOn: $editedPayment.isRecurringPayment) {
-                    Text("Recurring Payment").font(.headline)
-                }
-                .padding(2)
-                
-                if editedPayment.isRecurringPayment {
-                    Text("Payment Frequency")
+        NavigationView {
+            Form {
+                Section(header: Text("Payment Information").font(.headline).foregroundColor(.blue)) {
+                    Text("Payment Amount:")
                         .font(.headline)
-                    Picker("Select Payment Frequency", selection: $editedPayment.recurringPaymentFrequency) {
-                        Text("Monthly").tag("Monthly")
-                        Text("Yearly").tag("Yearly")
-                    }
-                    .padding()
-                }
-            }
 
-            Section {
-                Button("Save") {
-                    showAlert = true
+                    TextField("Enter Payment Amount", text: $editedPayment.amount)
+                        .padding(2)
+
+                    Text("Payment Date:")
+                        .font(.headline)
+                    DatePicker("Select Payment Date", selection: $editedPayment.date, displayedComponents: .date)
+                        .padding(2)
+
+                    Text("Payment Method:")
+                        .font(.headline)
+                    Picker("Select Payment Method", selection: $editedPayment.method){
+                        Text("Credit Card").tag("Credit Card")
+                        Text("Cash").tag("Cash")
+                    }
+                    .padding(2)
+
+                    Text("Number of Roomates:")
+                        .font(.headline)
+                    Stepper(value: $editedPayment.numberOfRoomates, in: 1...10) {
+                        Text("\(editedPayment.numberOfRoomates) Roomates")
+                    }
+
+                    Toggle(isOn: $editedPayment.isRecurringPayment) {
+                        Text("Recurring Payment").font(.headline)
+                    }
+                    .padding(2)
+
+                    if editedPayment.isRecurringPayment {
+                        Text("Payment Frequency")
+                            .font(.headline)
+                        Picker("Select Payment Frequency", selection: $editedPayment.recurringPaymentFrequency) {
+                            Text("Monthly").tag("Monthly")
+                            Text("Yearly").tag("Yearly")
+                        }
+                        .padding()
+                    }
                 }
-                .foregroundColor(.blue)
-            }
-            .alert(isPresented: $showAlert){
-                Alert(
-                    title: Text("Confirm Save"),
-                message: Text("Are you sure you want to save this payment ?"),
-                    primaryButton: .default(Text("OK")){
+
+                Button("Save") {
+                    if editedPayment.method == "Credit Card" {
+                        showAlert = true
+                    } else {
                         onSave(editedPayment)
                         presentationMode.wrappedValue.dismiss()
-
+                    }
+                }
+                .foregroundColor(.blue)
+                .padding()
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Credit Card"),
+                    message: Text("You have selected Credit Card. Do you want to proceed to payment?"),
+                    primaryButton: .default(Text("OK")) {
+                        navigateToStripePaymentSheetView = true
                     },
                     secondaryButton: .cancel()
                 )
             }
+            .sheet(isPresented: $navigateToStripePaymentSheetView) {
+             
+                StripePaymentSheetView(onDismiss: {
+                    onSave(editedPayment)
+                    presentationMode.wrappedValue.dismiss()
+                })          }
+            .frame(minWidth: 300, minHeight: 400)
+            .padding()
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("Payment Informations")
         }
-        .frame(minWidth: 300, minHeight: 400)
-        .padding()
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarTitle("Edit Payment")
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
