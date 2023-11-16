@@ -14,6 +14,7 @@
 		ADC9FA022AFB9B3300813D64 /* PaymentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9FA012AFB9B3300813D64 /* PaymentTests.swift */; };
 		ADC9FA0C2AFB9B3300813D64 /* PaymentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9FA0B2AFB9B3300813D64 /* PaymentUITests.swift */; };
 		ADC9FA0E2AFB9B3300813D64 /* PaymentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9FA0D2AFB9B3300813D64 /* PaymentUITestsLaunchTests.swift */; };
+		ADCF14542B06347A00FF0B6F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ADCF14532B06347A00FF0B6F /* Alamofire */; };
 		ADD89E122AFD0DF300BC5C4D /* PaymentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD89E112AFD0DF300BC5C4D /* PaymentListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADCF14542B06347A00FF0B6F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +140,9 @@
 			dependencies = (
 			);
 			name = Payment;
+			packageProductDependencies = (
+				ADCF14532B06347A00FF0B6F /* Alamofire */,
+			);
 			productName = Payment;
 			productReference = ADC9F9ED2AFB9B3200813D64 /* Payment.app */;
 			productType = "com.apple.product-type.application";
@@ -210,6 +215,9 @@
 				Base,
 			);
 			mainGroup = ADC9F9E42AFB9B3200813D64;
+			packageReferences = (
+				ADCF14522B06347A00FF0B6F /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = ADC9F9EE2AFB9B3200813D64 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -573,6 +581,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ADCF14522B06347A00FF0B6F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ADCF14532B06347A00FF0B6F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADCF14522B06347A00FF0B6F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ADC9F9E52AFB9B3200813D64 /* Project object */;
 }

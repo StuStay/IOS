@@ -5,9 +5,12 @@
 //  Created by hama boualeg on 9/11/2023.
 //
 import SwiftUI
+import Alamofire
+
 
 struct PaymentListView: View {
     @State private var payments: [Payment] = []
+    let initialPayment = Payment(id: "", amount: 0, date: Date(), method: "Cash", numberOfRoomates: 1, isRecurringPayment: false, recurringPaymentFrequency: "Monthly")
 
     var body: some View {
         NavigationView {
@@ -24,16 +27,65 @@ struct PaymentListView: View {
                 .onDelete(perform: deletePayment)
             }
             .navigationBarTitle("Payments")
-            .navigationBarItems(trailing: NavigationLink(destination: PaymentDetailEditView(onSave: { newPayment in
-                payments.append(newPayment)
+            .navigationBarItems(trailing: NavigationLink(destination: PaymentDetailEditView(payment: initialPayment, onSave: { newPayment in
+                savePayment(newPayment)
             })) {
                 Image(systemName: "plus")
             })
+            .onAppear {
+                fetchPayments()
+            }
         }
     }
 
+    private func fetchPayments() {
+        guard let url = URL(string: "http://localhost:3000/api/payments") else {
+            return
+        }
+
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        AF.request(url, method: .get)
+            .validate()
+            .responseDecodable(of: [Payment].self, decoder: decoder) { response in
+                switch response.result {
+                case .success(let fetchedPayments):
+                    DispatchQueue.main.async {
+                        self.payments = fetchedPayments
+                    }
+                case .failure(let error):
+                    print("Error fetching payments: \(error.localizedDescription)")
+                    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                        print("Response data: \(utf8Text)")
+                    }
+                }
+            }
+    }
+
     private func deletePayment(at offsets: IndexSet) {
-        payments.remove(atOffsets: offsets)
+        let paymentIDToDelete = payments[offsets.first!].id
+        AF.request("http://localhost:3000/api/payments/\(paymentIDToDelete)", method: .delete)
+            .response { response in
+                switch response.result {
+                case .success:
+                    self.payments.remove(atOffsets: offsets)
+                case .failure(let error):
+                    print("Error deleting payment: \(error.localizedDescription)")
+                }
+            }
+    }
+
+    private func savePayment(_ payment: Payment) {
+        AF.request("http://localhost:3000/api/payments", method: .post, parameters: payment, encoder: JSONParameterEncoder.default)
+            .response { response in
+                switch response.result {
+                case .success:
+                    self.payments.append(payment)
+                case .failure(let error):
+                    print("Error saving payment: \(error.localizedDescription)")
+                }
+            }
     }
 }
 
@@ -42,29 +94,33 @@ struct PaymentRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Amount: \(payment.amount)")
+            Text(payment.formattedAmount)
                 .font(.headline)
-            Text("Date: \(formattedDate(for: payment.date))")
+            Text(payment.formattedDate)
                 .font(.subheadline)
         }
         .padding(8)
     }
-
-    private func formattedDate(for date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter.string(from: date)
-    }
 }
 
-struct Payment: Identifiable {
-    let id = UUID()
-    var amount: String
+struct Payment: Identifiable, Decodable, Encodable {
+    var id: String
+    var amount: Int
     var date: Date
     var method: String
     var numberOfRoomates: Int
     var isRecurringPayment: Bool
     var recurringPaymentFrequency: String
+
+    var formattedAmount: String {
+        return "Amount: \(amount)"
+    }
+
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return "Date: \(dateFormatter.string(from: date))"
+    }
 }
 
 struct PaymentDetailEditView: View {
@@ -75,20 +131,22 @@ struct PaymentDetailEditView: View {
 
     var onSave: (Payment) -> Void
 
-    init(payment: Payment = Payment(amount: "", date: Date(), method: "Cash", numberOfRoomates: 1, isRecurringPayment: false, recurringPaymentFrequency: "Monthly" ), onSave: @escaping (Payment) -> Void) {
+    init(payment: Payment, onSave: @escaping (Payment) -> Void) {
         _editedPayment = State(initialValue: payment)
         self.onSave = onSave
     }
 
     var body: some View {
         NavigationView {
-            Form {
+            List {
                 Section(header: Text("Payment Information").font(.headline).foregroundColor(.blue)) {
                     Text("Payment Amount:")
                         .font(.headline)
-
-                    TextField("Enter Payment Amount", text: $editedPayment.amount)
-                        .padding(2)
+                    TextField("Enter Payment Amount", text: Binding(
+                        get: { String(editedPayment.amount) },
+                        set: { editedPayment.amount = Int($0) ?? 0 }
+                    ))
+                    .padding(2)
 
                     Text("Payment Date:")
                         .font(.headline)
@@ -103,10 +161,10 @@ struct PaymentDetailEditView: View {
                     }
                     .padding(2)
 
-                    Text("Number of Roomates:")
+                    Text("Number of Roommates:")
                         .font(.headline)
                     Stepper(value: $editedPayment.numberOfRoomates, in: 1...10) {
-                        Text("\(editedPayment.numberOfRoomates) Roomates")
+                        Text("\(editedPayment.numberOfRoomates) Roommates")
                     }
 
                     Toggle(isOn: $editedPayment.isRecurringPayment) {
@@ -147,15 +205,12 @@ struct PaymentDetailEditView: View {
                 )
             }
             .sheet(isPresented: $navigateToStripePaymentSheetView) {
-             
-                StripePaymentSheetView(onDismiss: {
-                    onSave(editedPayment)
-                    presentationMode.wrappedValue.dismiss()
-                })          }
+                Text("Stripe Payment Sheet View")
+            }
             .frame(minWidth: 300, minHeight: 400)
             .padding()
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Payment Informations")
+            .navigationBarTitle("Payment Information")
         }
     }
 }
