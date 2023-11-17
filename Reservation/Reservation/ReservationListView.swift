@@ -6,6 +6,28 @@
 //
 
 import SwiftUI
+import MapKit
+
+struct MapView: UIViewRepresentable {
+    var location: String
+
+    func makeUIView(context: Context) -> MKMapView {
+        MKMapView(frame: .zero)
+    }
+
+    func updateUIView(_ uiView: MKMapView, context: Context) {
+        // Convert the location string to a coordinate and set it on the map
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location) { placemarks, error in
+            if let location = placemarks?.first?.location?.coordinate {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = location
+                uiView.addAnnotation(annotation)
+                uiView.setRegion(MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)), animated: true)
+            }
+        }
+    }
+}
 
 struct ReservationListView: View {
     @ObservedObject var viewModel: ReservationViewModel
@@ -30,6 +52,9 @@ struct ReservationListView: View {
                             Text("Check In: \(ReservationListView.dateFormatter.string(from: reservation.checkInDate))")
                             Text("Check Out: \(ReservationListView.dateFormatter.string(from: reservation.checkOutDate))")
                             // Add more details based on your Reservation model
+                            // Display the MapView for each reservation
+                                             MapView(location: reservation.location)
+                                                 .frame(height: 150)
                         }
                     }
                 }
