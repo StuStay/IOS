@@ -1,0 +1,142 @@
+//
+//  ReservationListView.swift
+//  Reservation
+//
+//  Created by Mac-Mini_2021 on 17/11/2023.
+//
+
+import SwiftUI
+
+struct ReservationListView: View {
+    @ObservedObject var viewModel: ReservationViewModel
+    @State private var isRefreshing = false
+
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+
+    var body: some View {
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(viewModel.reservations.indices, id: \.self) { index in
+                        let reservation = viewModel.reservations[index]
+                        VStack(alignment: .leading) {
+                            Text("Name: \(reservation.name)")
+                            Text("Location: \(reservation.location)")
+                            Text("Check In: \(ReservationListView.dateFormatter.string(from: reservation.checkInDate))")
+                            Text("Check Out: \(ReservationListView.dateFormatter.string(from: reservation.checkOutDate))")
+                            // Add more details based on your Reservation model
+                        }
+                    }
+                }
+                .navigationTitle("Reservations")
+                .refreshable {
+                    // Fetch reservations when pull-to-refresh occurs
+                    viewModel.fetchReservations()
+                }
+                .disabled(isRefreshing) // Disable the list while refreshing
+
+                Button(action: {
+                    // Manually trigger the data refresh
+                    isRefreshing = true
+                    viewModel.fetchReservations()
+                    isRefreshing = false
+                }) {
+                    Text("Refresh")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                .padding(.top, 10)
+            }
+            .navigationBarItems(trailing:
+                NavigationLink(destination: AddReservationView(rv: viewModel)) {
+                    Text("Add")
+                }
+            )
+        }
+    }
+}
+
+
+struct ReservationListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReservationListView(viewModel: ReservationViewModel())
+    }
+}
+
+
+struct AddReservationView: View {
+    @ObservedObject var rv: ReservationViewModel
+
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("Name")) {
+                    TextField("Enter your name", text: $rv.name)
+                }
+
+                Section(header: Text("Location")) {
+                    TextField("City/Area", text: $rv.location)
+                }
+
+                Section(header: Text("Gender")) {
+                    Picker("Gender", selection: $rv.selectedgender) {
+                        Text("Homme").tag("Homme")
+                        Text("Femme").tag("Femme")
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+
+                Section(header: Text("Check In")) {
+                    DatePicker("Check In", selection: $rv.checkInDate, displayedComponents: .date)
+                }
+
+                Section(header: Text("Check Out")) {
+                    DatePicker("Check Out", selection: $rv.checkOutDate, displayedComponents: .date)
+                }
+
+                Section(header: Text("Phone")) {
+                    TextField("Your phone", text: $rv.phone)
+                        .keyboardType(.phonePad)
+                }
+
+                Section(header: Text("Number of Roommates")) {
+                    Stepper(value: $rv.numberOfRoommates, in: 1...10) {
+                        Text("Number of Roommates: \(rv.numberOfRoommates)")
+                    }
+                }
+
+                Section(header: Text("Price")) {
+                    HStack {
+                        TextField("Min", text: $rv.minPrice)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+                        Text("to")
+                        TextField("Max", text: $rv.maxPrice)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+                    }
+                }
+
+                Button(action: {
+                    rv.addReservation()
+                }) {
+                    Text("ADD")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+            }
+            .navigationTitle("Add Reservation")
+        }
+    }
+}
