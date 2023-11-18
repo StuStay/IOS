@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501E0BE32B092F2500EF7B15 /* LogementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE22B092F2500EF7B15 /* LogementViewModel.swift */; };
+		501E0BE62B092FCE00EF7B15 /* LogementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE52B092FCE00EF7B15 /* LogementService.swift */; };
+		501E0BE82B09306400EF7B15 /* Logement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE72B09306400EF7B15 /* Logement.swift */; };
 		503C13372AFB83010034D3A1 /* LogementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503C13362AFB83010034D3A1 /* LogementApp.swift */; };
 		503C13392AFB83010034D3A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503C13382AFB83010034D3A1 /* ContentView.swift */; };
 		503C133B2AFB83020034D3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503C133A2AFB83020034D3A1 /* Assets.xcassets */; };
@@ -53,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501E0BE22B092F2500EF7B15 /* LogementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementViewModel.swift; sourceTree = "<group>"; };
+		501E0BE52B092FCE00EF7B15 /* LogementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementService.swift; sourceTree = "<group>"; };
+		501E0BE72B09306400EF7B15 /* Logement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logement.swift; sourceTree = "<group>"; };
 		503C13332AFB83010034D3A1 /* Logement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		503C13362AFB83010034D3A1 /* LogementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementApp.swift; sourceTree = "<group>"; };
 		503C13382AFB83010034D3A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,9 +115,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		501E0BE42B092FAB00EF7B15 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				501E0BE52B092FCE00EF7B15 /* LogementService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		503C132A2AFB83010034D3A1 = {
 			isa = PBXGroup;
 			children = (
+				501E0BE42B092FAB00EF7B15 /* Services */,
 				50D2DD8E2B04DFDA009884FE /* ViewModels */,
 				50D2DD8D2B04DFCD009884FE /* Utilities */,
 				50D2DD8C2B04DFB5009884FE /* Networking */,
@@ -239,6 +254,8 @@
 		50D2DD8E2B04DFDA009884FE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				501E0BE22B092F2500EF7B15 /* LogementViewModel.swift */,
+				501E0BE72B09306400EF7B15 /* Logement.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -389,6 +406,7 @@
 				503C13432AFB83020034D3A1 /* Logement.xcdatamodeld in Sources */,
 				503C136F2AFB8B030034D3A1 /* ListingItemView.swift in Sources */,
 				503C136D2AFB89190034D3A1 /* SearchAndFilterBar.swift in Sources */,
+				501E0BE62B092FCE00EF7B15 /* LogementService.swift in Sources */,
 				503C13402AFB83020034D3A1 /* Persistence.swift in Sources */,
 				5057465A2B08F6B7007F7EF9 /* testnavbarview.swift in Sources */,
 				509980952B090B9B0048B872 /* AnnouncedDetailView.swift in Sources */,
@@ -397,6 +415,7 @@
 				5088AD482B08D17600A07FD9 /* ProfileVieww.swift in Sources */,
 				509980932B090B800048B872 /* AnnouncedListView.swift in Sources */,
 				50FF42992AFD285600279937 /* AddLogementView.swift in Sources */,
+				501E0BE82B09306400EF7B15 /* Logement.swift in Sources */,
 				50FF42942AFD162700279937 /* ReservationsView.swift in Sources */,
 				503C13392AFB83010034D3A1 /* ContentView.swift in Sources */,
 				503C13372AFB83010034D3A1 /* LogementApp.swift in Sources */,
@@ -404,6 +423,7 @@
 				50FF42922AFD160E00279937 /* FavoritesView.swift in Sources */,
 				503C13712AFB8B780034D3A1 /* ListingDetailsView.swift in Sources */,
 				50FF42902AFD15F800279937 /* ProfileView.swift in Sources */,
+				501E0BE32B092F2500EF7B15 /* LogementViewModel.swift in Sources */,
 				50446B7A2B08C36600AB4751 /* AppCoordinator.swift in Sources */,
 				50FF42962AFD163700279937 /* ReclameView.swift in Sources */,
 				503C13692AFB85790034D3A1 /* ExploreView.swift in Sources */,
