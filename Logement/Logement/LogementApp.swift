@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct LogementApp: App {
+    @StateObject private var appCoordinator = AppCoordinator()
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ExploreView()
+            AddLogementView()
                 
         }
     }
