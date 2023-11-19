@@ -53,9 +53,15 @@ struct ReservationListView: View {
                             Text("Check Out: \(ReservationListView.dateFormatter.string(from: reservation.checkOutDate))")
                             // Add more details based on your Reservation model
                             // Display the MapView for each reservation
-                                             MapView(location: reservation.location)
-                                                 .frame(height: 150)
+                            MapView(location: reservation.location)
+                                .frame(height: 150)
                         }
+                    }
+                    .onDelete { indexSet in
+                        // Handle delete action
+                        guard let firstIndex = indexSet.first else { return }
+                        let reservationIDToDelete = viewModel.reservations[firstIndex].id // Assuming you have an 'id' property in your Reservation model
+                        viewModel.deleteReservation(reservationID: reservationIDToDelete)
                     }
                 }
                 .navigationTitle("Reservations")
@@ -64,20 +70,6 @@ struct ReservationListView: View {
                     viewModel.fetchReservations()
                 }
                 .disabled(isRefreshing) // Disable the list while refreshing
-
-                Button(action: {
-                    // Manually trigger the data refresh
-                    isRefreshing = true
-                    viewModel.fetchReservations()
-                    isRefreshing = false
-                }) {
-                    Text("Refresh")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                .padding(.top, 10)
             }
             .navigationBarItems(trailing:
                 NavigationLink(destination: AddReservationView(rv: viewModel)) {

@@ -56,5 +56,26 @@ class ReservationViewModel: ObservableObject {
             }
         }
     }
+    func deleteReservation(reservationID: String) {
+        ReservationService.shared.deleteReservation(reservationID: reservationID) { [weak self] result in
+            guard let self = self else { return }
+
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    print("Success: Reservation deleted successfully")
+                    // Optionally, you may want to fetch updated reservations after deleting one
+                    self.fetchReservations()
+
+                case .failure(let error):
+                    print("Error deleting reservation: \(error)")
+                    // Optionally, you may want to show an alert or handle the error in some way
+                }
+            }
+        }
+    }
+
+
+
 
 }

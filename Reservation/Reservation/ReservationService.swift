@@ -114,4 +114,38 @@ struct ReservationService {
 
     task.resume()
 }
+    func deleteReservation(reservationID: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let urlString = "\(baseURL)/\(reservationID)"
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) else {
+                DispatchQueue.main.async {
+                    completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: nil)))
+                }
+                return
+            }
+
+            // The response for a successful DELETE request might not contain valid JSON or any data to decode
+            DispatchQueue.main.async {
+                completion(.success("Reservation deleted successfully"))
+            }
+        }
+
+        task.resume()
+    }
+
 }

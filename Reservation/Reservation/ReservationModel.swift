@@ -1,6 +1,7 @@
 import Foundation
 
 struct Reservation: Decodable {
+    var id: String
     var name: String
     var location: String
     var selectedgender: String
@@ -12,6 +13,7 @@ struct Reservation: Decodable {
     var maxPrice: String
 
     enum CodingKeys: String, CodingKey {
+        case id = "_id"
         case name
         case location
         case selectedgender
@@ -25,6 +27,7 @@ struct Reservation: Decodable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         location = try container.decode(String.self, forKey: .location)
         selectedgender = try container.decode(String.self, forKey: .selectedgender)
