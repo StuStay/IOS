@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43AA1F702B0A1AE7006990A4 /* LogementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA1F6F2B0A1AE7006990A4 /* LogementListView.swift */; };
 		501E0BE32B092F2500EF7B15 /* LogementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE22B092F2500EF7B15 /* LogementViewModel.swift */; };
 		501E0BE62B092FCE00EF7B15 /* LogementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE52B092FCE00EF7B15 /* LogementService.swift */; };
 		501E0BE82B09306400EF7B15 /* Logement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE72B09306400EF7B15 /* Logement.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43AA1F6F2B0A1AE7006990A4 /* LogementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementListView.swift; sourceTree = "<group>"; };
 		501E0BE22B092F2500EF7B15 /* LogementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementViewModel.swift; sourceTree = "<group>"; };
 		501E0BE52B092FCE00EF7B15 /* LogementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementService.swift; sourceTree = "<group>"; };
 		501E0BE72B09306400EF7B15 /* Logement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logement.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				50E05AA82B08D56200C74B5F /* PaymentView.swift */,
 				509980922B090B800048B872 /* AnnouncedListView.swift */,
 				509980942B090B9B0048B872 /* AnnouncedDetailView.swift */,
+				43AA1F6F2B0A1AE7006990A4 /* LogementListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				503C13712AFB8B780034D3A1 /* ListingDetailsView.swift in Sources */,
 				50FF42902AFD15F800279937 /* ProfileView.swift in Sources */,
 				501E0BE32B092F2500EF7B15 /* LogementViewModel.swift in Sources */,
+				43AA1F702B0A1AE7006990A4 /* LogementListView.swift in Sources */,
 				50446B7A2B08C36600AB4751 /* AppCoordinator.swift in Sources */,
 				50FF42962AFD163700279937 /* ReclameView.swift in Sources */,
 				503C13692AFB85790034D3A1 /* ExploreView.swift in Sources */,

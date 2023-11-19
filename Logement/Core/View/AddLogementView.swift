@@ -2,13 +2,15 @@ import SwiftUI
 import MapKit
 
 struct Annonce: Identifiable {
+    let images: [UIImage]
     let id = UUID()
     let titre: String
     let description: String
+    let nom: String
     let nombreChambre: String
     let prix: String
+    let contact: String
     let lieu: String
-    let images: [UIImage]
 }
 
 struct ImagePicker: UIViewControllerRepresentable {
@@ -54,31 +56,39 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 struct AddLogementView: View {
     @State private var annonces: [Annonce] = []
+    @State private var selectedImage: UIImage? = nil
     @State private var titre: String = ""
     @State private var description: String = ""
+    @State private var nom: String = ""
     @State private var nombreChambre: String = ""
     @State private var prix: String = ""
+    @State private var contact: String = ""
     @State private var lieu: String = ""
+
     @State private var selectedLieu: CLLocationCoordinate2D? = nil
     @State private var showImagePicker: Bool = false
-    @State private var selectedImage: UIImage? = nil
     @State private var selectedTab: Int? = 0
     @State private var navigateToPostedAnnouncements: Bool = false
     @State private var isTitreValid: Bool = true
     @State private var isDescriptionValid: Bool = true
     @State private var isNombreChambreValid: Bool = true
     @State private var isPrixValid: Bool = true
+    @State private var isLieuValid: Bool = true
+    @State private var isNomValid: Bool = true
+    @State private var isContactValid: Bool = true
     @State private var isNavigationActive: Bool = false
+    @State private var isImageValid: Bool = true // Nouvelle variable pour la validation des images
+
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     Section(header: Text("Détails du Logement").font(.custom("Montserrat", size: 24))) {
-                                            TextField("Titre", text: $titre)
-                                                .font(.custom("Montserrat", size: 16))
-                                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                                .padding(.vertical, 5)
-                                                .overlay(
+                        TextField("Titre", text: $titre)
+                            .font(.custom("Montserrat", size: 16))
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.vertical, 5)
+                            .overlay(
                                 Image(systemName: "pencil.circle.fill")
                                     .foregroundColor(.cyan)
                                     .padding(.horizontal, 8),
@@ -138,20 +148,42 @@ struct AddLogementView: View {
                             .background(isPrixValid ? Color.clear : Color.red.opacity(0.3))
                             .cornerRadius(6)
 
-                        MapView(selectedLocation: $selectedLieu)
-                            .frame(height: 200)
-                            .cornerRadius(8)
+                        TextField("Nom", text: $nom)
+                            .font(.custom("Montserrat", size: 16))
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.vertical, 5)
+                            .overlay(
+                                Image(systemName: "person.fill")
+                                    .foregroundColor(.cyan)
+                                    .padding(.horizontal, 8),
+                                alignment: .trailing
+                            )
+                            .background(isNomValid ? Color.clear : Color.red.opacity(0.3))
+                            .cornerRadius(6)
+
+                        TextField("Contact", text: $contact)
+                            .font(.custom("Montserrat", size: 16))
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.phonePad)
+                            .padding(.vertical, 5)
+                            .overlay(
+                                Image(systemName: "phone.fill")
+                                    .foregroundColor(.cyan)
+                                    .padding(.horizontal, 8),
+                                alignment: .trailing
+                            )
+                            .background(isContactValid ? Color.clear : Color.red.opacity(0.3))
+                            .cornerRadius(6)
                     }
-                    .padding(.vertical, 10)
 
                     Section(header: Text("Images").font(.custom("Montserrat", size: 24))) {
-                                            if selectedImage != nil {
-                                                Image(uiImage: selectedImage!)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(height: 100)
-                                                    .cornerRadius(8)
-                                                    .shadow(radius: 3)
+                        if selectedImage != nil {
+                            Image(uiImage: selectedImage!)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 100)
+                                .cornerRadius(8)
+                                .shadow(radius: 3)
                         }
 
                         Button(action: {
@@ -159,53 +191,67 @@ struct AddLogementView: View {
                         }) {
                             Text("Uploader des Images").font(.custom("Montserrat", size: 16)).foregroundColor(.blue)
                         }
+                        .background(isImageValid ? Color.clear : Color.red.opacity(0.3))
+                        .cornerRadius(6)
                     }
 
                     Section {
-                                            Button(action: {
-                                                // Basic input validation
-                                                isTitreValid = !titre.isEmpty
-                                                isDescriptionValid = !description.isEmpty
-                                                isNombreChambreValid = !nombreChambre.isEmpty
-                                                isPrixValid = !prix.isEmpty
+                        Button(action: {
+                            // Validate input fields
+                            isTitreValid = !titre.isEmpty
+                            isDescriptionValid = !description.isEmpty
+                            isNombreChambreValid = !nombreChambre.isEmpty
+                            isPrixValid = !prix.isEmpty
+                            isLieuValid = !lieu.isEmpty
+                            isNomValid = !nom.isEmpty
+                            isContactValid = !contact.isEmpty
 
-                                                // If all inputs are valid, proceed to add the announcement
-                                                if isTitreValid && isDescriptionValid && isNombreChambreValid && isPrixValid {
-                                                    let annonce = Annonce(titre: titre, description: description, nombreChambre: nombreChambre, prix: prix, lieu: lieu, images: [selectedImage].compactMap { $0 })
+                            
+                            isImageValid = selectedImage != nil
 
-                                                    annonces.append(annonce)
+                            
+                            if isTitreValid && isDescriptionValid && isNombreChambreValid && isPrixValid && isLieuValid && isNomValid && isContactValid && isImageValid {
+        let annonce = Annonce(images: [selectedImage].compactMap { $0 },
+        titre: titre,
+            description: description,
+            nom: nom,
+    nombreChambre: nombreChambre,
+                                                                               prix: prix,
+                                                                               contact: contact,
+                                                                               lieu: lieu)
 
-                                                    titre = ""
-                                                    description = ""
-                                                    nombreChambre = ""
-                                                    prix = ""
-                                                    selectedImage = nil
-                                                    
-                                                    // Set the flag to navigate to the PostedAnnouncementsView
-                                                    navigateToPostedAnnouncements = true
+                                                        annonces.append(annonce)
+                                                        selectedImage = nil
+                                                        titre = ""
+                                                        description = ""
+                                                        nom = ""
+                                                        nombreChambre = ""
+                                                        prix = ""
+                                                        contact = ""
+                                                        lieu = ""
+
+                                                        navigateToPostedAnnouncements = true
+                                                    }
+                                                }) {
+                                                    Text("Poster l'Annonce").font(.custom("Montserrat", size: 16)).foregroundColor(.white).padding().background(Color.cyan).cornerRadius(8)
                                                 }
-                                            }) {
-                                                Text("Poster l'Annonce").font(.custom("Montserrat", size: 16)).foregroundColor(.white).padding().background(Color.cyan).cornerRadius(8)
                                             }
+                                            .frame(maxWidth: .infinity, alignment: .center)
                                         }
-                                        .frame(maxWidth: .infinity, alignment: .center)
-                                    }
-
-                                    .navigationBarTitle("Poster une Annonce")
-                                    .sheet(isPresented: $showImagePicker) {
-                                        ImagePicker(image: $selectedImage, isPresented: $showImagePicker)
-                                    }
-                                    .background(
-                                        NavigationLink(destination: PostedAnnouncementsView(annonces: $annonces), isActive: $navigateToPostedAnnouncements) {
-                                            EmptyView()
+                                        .navigationBarTitle("Poster une Annonce")
+                                        .sheet(isPresented: $showImagePicker) {
+                                            ImagePicker(image: $selectedImage, isPresented: $showImagePicker)
                                         }
-                                        .hidden()
-                                    )
-                                }
-                                .overlay(bottomNavigationBar, alignment: .bottom)
-                            }
-                        }
-
+                                        .background(
+                                            NavigationLink(destination: PostedAnnouncementsView(annonces: $annonces), isActive: $navigateToPostedAnnouncements) {
+                                                EmptyView()
+                                            }
+                                            .hidden()
+                )
+            }
+            .overlay(bottomNavigationBar, alignment: .bottom)
+        }
+    }
 
     private var bottomNavigationBar: some View {
         HStack {
@@ -242,6 +288,7 @@ struct AddLogementView: View {
         .edgesIgnoringSafeArea(.bottom)
     }
 }
+
 struct PostedAnnouncementsView: View {
     @Binding var annonces: [Annonce]
 
@@ -264,7 +311,6 @@ struct PostedAnnouncementsView: View {
         }
     }
 }
-
 
 struct MapView: UIViewRepresentable {
     @Binding var selectedLocation: CLLocationCoordinate2D?

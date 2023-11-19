@@ -1,4 +1,4 @@
-import Foundation
+/*import Foundation
 
 enum LogementError: Error {
     case invalidURL
@@ -124,3 +124,4 @@ class LogementService {
         task.resume()
     }
 }
+*/
