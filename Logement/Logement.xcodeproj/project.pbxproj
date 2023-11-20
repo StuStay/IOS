@@ -11,6 +11,10 @@
 		501E0BE32B092F2500EF7B15 /* LogementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE22B092F2500EF7B15 /* LogementViewModel.swift */; };
 		501E0BE62B092FCE00EF7B15 /* LogementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE52B092FCE00EF7B15 /* LogementService.swift */; };
 		501E0BE82B09306400EF7B15 /* Logement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E0BE72B09306400EF7B15 /* Logement.swift */; };
+		501E54022B0BAA4F00B44CA6 /* CustomImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E54012B0BAA4F00B44CA6 /* CustomImagePicker.swift */; };
+		501E54042B0BAE3100B44CA6 /* AnnonceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E54032B0BAE3100B44CA6 /* AnnonceView.swift */; };
+		501E54062B0BB26700B44CA6 /* DetailAnnonceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E54052B0BB26700B44CA6 /* DetailAnnonceView.swift */; };
+		501E54082B0BB33400B44CA6 /* EditAnnonceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E54072B0BB33400B44CA6 /* EditAnnonceView.swift */; };
 		503C13372AFB83010034D3A1 /* LogementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503C13362AFB83010034D3A1 /* LogementApp.swift */; };
 		503C13392AFB83010034D3A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503C13382AFB83010034D3A1 /* ContentView.swift */; };
 		503C133B2AFB83020034D3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503C133A2AFB83020034D3A1 /* Assets.xcassets */; };
@@ -61,6 +65,10 @@
 		501E0BE22B092F2500EF7B15 /* LogementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementViewModel.swift; sourceTree = "<group>"; };
 		501E0BE52B092FCE00EF7B15 /* LogementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementService.swift; sourceTree = "<group>"; };
 		501E0BE72B09306400EF7B15 /* Logement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logement.swift; sourceTree = "<group>"; };
+		501E54012B0BAA4F00B44CA6 /* CustomImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImagePicker.swift; sourceTree = "<group>"; };
+		501E54032B0BAE3100B44CA6 /* AnnonceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnonceView.swift; sourceTree = "<group>"; };
+		501E54052B0BB26700B44CA6 /* DetailAnnonceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAnnonceView.swift; sourceTree = "<group>"; };
+		501E54072B0BB33400B44CA6 /* EditAnnonceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAnnonceView.swift; sourceTree = "<group>"; };
 		503C13332AFB83010034D3A1 /* Logement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		503C13362AFB83010034D3A1 /* LogementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementApp.swift; sourceTree = "<group>"; };
 		503C13382AFB83010034D3A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -272,6 +280,10 @@
 				509980922B090B800048B872 /* AnnouncedListView.swift */,
 				509980942B090B9B0048B872 /* AnnouncedDetailView.swift */,
 				43AA1F6F2B0A1AE7006990A4 /* LogementListView.swift */,
+				501E54012B0BAA4F00B44CA6 /* CustomImagePicker.swift */,
+				501E54032B0BAE3100B44CA6 /* AnnonceView.swift */,
+				501E54052B0BB26700B44CA6 /* DetailAnnonceView.swift */,
+				501E54072B0BB33400B44CA6 /* EditAnnonceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,14 +418,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				501E54042B0BAE3100B44CA6 /* AnnonceView.swift in Sources */,
 				503C13432AFB83020034D3A1 /* Logement.xcdatamodeld in Sources */,
+				501E54022B0BAA4F00B44CA6 /* CustomImagePicker.swift in Sources */,
 				503C136F2AFB8B030034D3A1 /* ListingItemView.swift in Sources */,
 				503C136D2AFB89190034D3A1 /* SearchAndFilterBar.swift in Sources */,
+				501E54082B0BB33400B44CA6 /* EditAnnonceView.swift in Sources */,
 				501E0BE62B092FCE00EF7B15 /* LogementService.swift in Sources */,
 				503C13402AFB83020034D3A1 /* Persistence.swift in Sources */,
 				5057465A2B08F6B7007F7EF9 /* testnavbarview.swift in Sources */,
 				509980952B090B9B0048B872 /* AnnouncedDetailView.swift in Sources */,
 				503C13742AFB8BE40034D3A1 /* ListingImageCarousselView.swift in Sources */,
+				501E54062B0BB26700B44CA6 /* DetailAnnonceView.swift in Sources */,
 				503C13762AFBADBD0034D3A1 /* DestinationSearchView.swift in Sources */,
 				5088AD482B08D17600A07FD9 /* ProfileVieww.swift in Sources */,
 				509980932B090B800048B872 /* AnnouncedListView.swift in Sources */,

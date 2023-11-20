@@ -65,19 +65,19 @@ struct AddLogementView: View {
     @State private var contact: String = ""
     @State private var lieu: String = ""
 
-    @State private var selectedLieu: CLLocationCoordinate2D? = nil
-    @State private var showImagePicker: Bool = false
-    @State private var selectedTab: Int? = 0
-    @State private var navigateToPostedAnnouncements: Bool = false
-    @State private var isTitreValid: Bool = true
-    @State private var isDescriptionValid: Bool = true
-    @State private var isNombreChambreValid: Bool = true
-    @State private var isPrixValid: Bool = true
-    @State private var isLieuValid: Bool = true
-    @State private var isNomValid: Bool = true
-    @State private var isContactValid: Bool = true
-    @State private var isNavigationActive: Bool = false
-    @State private var isImageValid: Bool = true // Nouvelle variable pour la validation des images
+        @State private var selectedLieu: CLLocationCoordinate2D? = nil
+        @State private var showImagePicker: Bool = false
+        @State private var selectedTab: Int? = 0
+        @State private var navigateToPostedAnnouncements: Bool = false
+        @State private var isTitreValid: Bool = true
+        @State private var isDescriptionValid: Bool = true
+        @State private var isNombreChambreValid: Bool = true
+        @State private var isPrixValid: Bool = true
+        @State private var isLieuValid: Bool = true
+        @State private var isNomValid: Bool = true
+        @State private var isContactValid: Bool = true
+        @State private var isNavigationActive: Bool = false
+        @State private var isImageValid: Bool = true // Nouvelle variable pour la validation des images
 
     var body: some View {
         NavigationView {
@@ -242,11 +242,12 @@ struct AddLogementView: View {
                                         .sheet(isPresented: $showImagePicker) {
                                             ImagePicker(image: $selectedImage, isPresented: $showImagePicker)
                                         }
-                                        .background(
-                                            NavigationLink(destination: PostedAnnouncementsView(annonces: $annonces), isActive: $navigateToPostedAnnouncements) {
-                                                EmptyView()
-                                            }
-                                            .hidden()
+                                        .overlay(bottomNavigationBar, alignment: .bottom)
+                                                    .background(
+                                                        NavigationLink(destination: PostedAnnouncementsView(annonces: $annonces), isActive: $navigateToPostedAnnouncements) {
+                                                            EmptyView()
+                                                        }
+                                                        .hidden()
                 )
             }
             .overlay(bottomNavigationBar, alignment: .bottom)
