@@ -15,7 +15,7 @@ struct LogementApp: App {
     var body: some Scene {
         WindowGroup {
             AddLogementView()
-                
+          //  LogementListView()    
         }
     }
 }
