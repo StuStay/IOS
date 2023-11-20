@@ -70,7 +70,7 @@ class LogementService {
         task.resume()
     }
     
-    func getLogements(completion: @escaping (Result<[Logement], Error>) -> Void) {
+    func getAllLogements(completion: @escaping (Result<[Logement], Error>) -> Void) {
         let urlString = baseURL
         guard let url = URL(string: urlString) else {
             completion(.failure(LogementError.invalidURL))
