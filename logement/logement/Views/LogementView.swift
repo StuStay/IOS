@@ -221,10 +221,28 @@ struct LogementView: View {
                             )
 
                            }
+                           .toolbar {
+                               ToolbarItem(placement: .navigationBarTrailing) {
+                                   HStack {
+                                       NavigationLink(destination: ProfileView()) {
+                                           Image(systemName: "person.circle")
+                                       }
+                                       .foregroundColor(.cyan)
+
+                                       Spacer()
+
+                                       NavigationLink(destination: ReclameView()) {
+                                           Image(systemName: "megaphone")
+                                       }
+                                       .foregroundColor(.green)
+                                   }
+                               }
+                           }
 
                        }
         
                    }
+    
   
     func loadImage() {
         
