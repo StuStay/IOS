@@ -1,6 +1,6 @@
 
 
-import SwiftUI
+/*import SwiftUI
 import MapKit
 
 /*struct LogementMapView: UIViewRepresentable {
@@ -128,3 +128,4 @@ struct AddLogementView: View {
     }
 }
 
+*/

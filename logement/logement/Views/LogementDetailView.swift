@@ -1,4 +1,6 @@
 import SwiftUI
+import Social
+
 
 struct LogementDetailView: View {
     @State private var isEditMode: Bool = false
@@ -31,25 +33,72 @@ struct LogementDetailView: View {
                 Text("Lieu: \(lieu)")
 
                 HStack {
-                    Button("Editer l'annonce") {
-                        onEditerAnnonce()
-                    }
-                    .foregroundColor(.blue)
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 2))
+                                    Button("Editer l'annonce") {
+                                        onEditerAnnonce()
+                                    }
+                                    .foregroundColor(.blue)
+                                    .padding()
+                                    .background(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 2))
 
-                    Spacer()
+                                    Spacer()
 
-                    Button("Supprimer l'annonce") {
-                        onSupprimerAnnonce()
+                                    Button("Supprimer l'annonce") {
+                                        onSupprimerAnnonce()
+                                    }
+                                    .foregroundColor(.red)
+                                    .padding()
+                                    .background(RoundedRectangle(cornerRadius: 10).stroke(Color.red, lineWidth: 2))
+
+                                    Spacer()
+
+                                    // Add a button for sharing
+                                    Button("Partager") {
+                                        shareAnnouncement()
+                                    }
+                                    .foregroundColor(.green)
+                                    .padding()
+                                    .background(RoundedRectangle(cornerRadius: 10).stroke(Color.green, lineWidth: 2))
+                                }
+                            }
+                            .padding()
+                        }
+                        .navigationTitle("Détails de l'annonce")
                     }
-                    .foregroundColor(.red)
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 10).stroke(Color.red, lineWidth: 2))
-                }
-            }
-            .padding()
+
+    private func shareAnnouncement() {
+        // Prepare content to share (you can customize this)
+        let shareContent = "Découvrez cette annonce: \(titre)"
+        
+        // Check if the Facebook app is installed
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
+            let facebookShareSheet = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            facebookShareSheet?.setInitialText(shareContent)
+            UIApplication.shared.windows.first?.rootViewController?.present(facebookShareSheet!, animated: true, completion: nil)
+        } else {
+            // Facebook app is not installed
+            // Handle accordingly or prompt the user to install the app
         }
-        .navigationTitle("Détails de l'annonce")
+
+        // Check if the Twitter app is installed
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+            let twitterShareSheet = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            twitterShareSheet?.setInitialText(shareContent)
+            UIApplication.shared.windows.first?.rootViewController?.present(twitterShareSheet!, animated: true, completion: nil)
+        } else {
+            // Twitter app is not installed
+            // Handle accordingly or prompt the user to install the app
+        }
+
+        // For Instagram, you can open the app with a pre-filled caption
+        let instagramURL = URL(string: "instagram://app")!
+        if UIApplication.shared.canOpenURL(instagramURL) {
+            let caption = "Découvrez cette annonce: \(titre)"
+            let escapedCaption = caption.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+            let instagramShareURL = URL(string: "instagram://library?LocalIdentifier=\(escapedCaption)")!
+            UIApplication.shared.open(instagramShareURL, options: [:], completionHandler: nil)
+        } else {
+            // Instagram app is not installed
+            // Handle accordingly or prompt the user to install the app
+        }
     }
-}
+                }

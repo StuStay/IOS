@@ -1,4 +1,4 @@
-import Foundation
+/*import Foundation
 
 struct Logement: Decodable, Identifiable {
     var id: String
@@ -12,7 +12,7 @@ struct Logement: Decodable, Identifiable {
     var lieu: String
 
     enum CodingKeys: String, CodingKey {
-        case id = "_id" // Map _id to id
+        case id = "_id" 
         case images
         case titre
         case description
@@ -37,3 +37,4 @@ struct Logement: Decodable, Identifiable {
         lieu = try container.decode(String.self, forKey: .lieu)
     }
 }
+*/

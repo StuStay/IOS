@@ -22,15 +22,15 @@ struct LogementView: View {
     @State private var isContactValid: Bool = true
     
     func supprimerAnnonce() {
-        // Add logic to delete the announcement
+        
         print("Annonce supprimée depuis LogementView!")
         isAnnonceSupprimee = true
     }
     
     func validateTitre(_ value: String) {
-        // Ajoutez votre logique de validation pour le titre ici
+        
         isTitreValid = !value.isEmpty
-        // Vous pouvez ajouter d'autres conditions de validation en fonction de vos besoins
+        
     }
     func validateFields() -> Bool {
         var isValid = true
@@ -202,12 +202,12 @@ struct LogementView: View {
                                LogementDetailView   (
                                 onSupprimerAnnonce: {
                                     // Put your logic for deleting the post here
-                                    print("Annonce supprimée depuis LogementView!")
+                                    print("Annonce supprimée !")
                                     isAnnonceSupprimee = true
                                 },
                                 onEditerAnnonce: {
                                     // Put your logic for editing the post here
-                                    print("Annonce éditée depuis LogementView!")
+                                    print("Annonce éditée !")
                                     // You may want to present an edit view or toggle an edit mode here
                                 },
                                 titre: titre,

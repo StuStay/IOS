@@ -1,4 +1,4 @@
-import Foundation
+/*import Foundation
 
 enum LogementError: Error {
     case invalidURL
@@ -12,7 +12,7 @@ class LogementService {
 
     private let baseURL = "http://localhost:3000/api/logements/logement"
     
-    func createLogement(images: [String], titre: String, description: String,nom: String,nombreChambre: Int,prix: Int,contact: String ,lieu: String  completion: @escaping (Result<String, Error>) {
+    func createLogement(images: [String], titre: String, description: String,nom: String,nombreChambre: Int,prix: Int,contact: String ,lieu: String , completion: @escaping (Result<String, Error>) -> Void ) {
         let urlString = baseURL
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
@@ -73,7 +73,7 @@ class LogementService {
     func getAllLogements(completion: @escaping (Result<[Logement], Error>) -> Void) {
         let urlString = baseURL
         guard let url = URL(string: urlString) else {
-            completion(.failure(LogementError.invalidURL))
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
         }
         
@@ -141,4 +141,4 @@ class LogementService {
         task.resume()
     }
 }
-
+*/

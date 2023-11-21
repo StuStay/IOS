@@ -1,4 +1,4 @@
-import Foundation
+/*import Foundation
 import Combine
 
 class LogementViewModel: ObservableObject {
@@ -62,7 +62,7 @@ class LogementViewModel: ObservableObject {
     }
 
     func getLogementDetails(logementID: String) {
-        logementService.shared.getLogementDetails(logementID: logementID)
+        LogementService.shared.getLogementDetails(logementID: logementID)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -80,7 +80,7 @@ class LogementViewModel: ObservableObject {
     }
 
     func updateLogement(logement: Logement) {
-        logementService.shared.updateLogement(logement: logement)
+        LogementService.shared.updateLogement(logement: logement)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -100,7 +100,7 @@ class LogementViewModel: ObservableObject {
     }
 
     func deleteLogement(logementID: String) {
-        logementService.shared.deleteLogement(logementID: logementID)  { [weak self] result in
+        LogementService.shared.deleteLogement(logementID: logementID)  { [weak self] result in
             guard let self = self else { return }
 DispatchQueue.main.async {
                 switch result {
@@ -119,3 +119,4 @@ case .failure(let error):
 
 }
 
+*/
