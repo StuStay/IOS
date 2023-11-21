@@ -10,6 +10,7 @@ class LogementViewModel: ObservableObject {
     @Published var prix: Int = 0
     @Published var contact: String = ""
     @Published var lieu: String = ""
+    
 
     @Published var logements: [Logement] = []
 

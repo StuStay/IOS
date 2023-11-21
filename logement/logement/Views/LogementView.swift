@@ -20,6 +20,8 @@ struct LogementView: View {
     @State private var isLieuValid: Bool = true
     @State private var isNomValid: Bool = true
     @State private var isContactValid: Bool = true
+    @StateObject private var viewModel = LogementViewModel()
+
     
     func supprimerAnnonce() {
         
@@ -185,6 +187,7 @@ struct LogementView: View {
                 Section {
                     Button("Publier l'annonce") {
                         if validateFields() {
+                            viewModel.addLogement()
                             isAnnoncePublished = true
                             print("Annonce publiée !")
                             self.isAnnoncePubliee.toggle()
@@ -192,6 +195,7 @@ struct LogementView: View {
                             print("Veuillez remplir tous les champs correctement.")
                         }
                     }
+
 
                 }
 

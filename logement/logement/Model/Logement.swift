@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
-struct Logement: Decodable {
-    //var id: String
+struct Logement: Decodable, Identifiable {
+    var id: String
     var images: String
     var titre: String
     var description: String
@@ -12,7 +12,7 @@ struct Logement: Decodable {
     var lieu: String
     
     enum CodingKeys: String, CodingKey {
-       // case id = "_id"
+        case id = "_id"
         case images
         case titre
         case description
@@ -26,7 +26,7 @@ struct Logement: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        //self.id = try container.decode(String.self, forKey: .id)
+        self.id = try container.decode(String.self, forKey: .id)
         self.images = try container.decode(String.self, forKey: .images)
         self.titre = try container.decode(String.self, forKey: .titre)
         self.description = try container.decode(String.self, forKey: .description)
