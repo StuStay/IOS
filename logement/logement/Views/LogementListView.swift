@@ -20,15 +20,6 @@ struct LogementListView: View {
                         Text("Lieu: \(logement.lieu)")
                     }
                 }
-                .onDelete { indexSet in
-                    
-                    let indicesToDelete  = IndexSet(indexSet)
-                    
-                    guard let firstIndex = indicesToDelete.first else { return }
-                   
-                        let logementIDToDelete = viewModel.logements[firstIndex].id
-                        viewModel.deleteLogement(logementID: logementIDToDelete)
-                    }
                 }
                 .navigationTitle("Logements")
                 .refreshable {
@@ -59,40 +50,40 @@ struct AddLogementView: View {
         NavigationView {
             List {
                 Section(header: Text("Titre")) {
-                    TextField("Enter le titre", value: lv.titre)
+                    TextField("Enter le titre", text: $lv.titre)
                 }
                 
                 Section(header: Text("Description")) {
-                    TextField("Description du logement", value: lv.description)
+                    TextField("Description du logement", text: $lv.description)
                 }
                 
                 Section(header: Text("Nom")) {
-                    TextField("Nom du logement", value: lv.nom)
+                    TextField("Nom du logement", text: $lv.nom)
                 }
                 
                 Section(header: Text("Nombre de Chambres")) {
-                    Stepper(value: lv.nombreChambre, in: 1...10) {
-                        Text("Nombre de Chambres: \(LogementViewModel.nobmbreChambre)")
+                    Stepper(value: $lv.nombreChambre, in: 1...10) {
+                        Text("Nombre de Chambres: \(lv.nombreChambre)")
                     }
                 }
                 
                 Section(header: Text("Prix")) {
-                    TextField("Prix du logement", value: lv.prix, formatter: NumberFormatter())
+                    TextField("Prix du logement", value: $lv.prix, formatter: NumberFormatter())
                         .keyboardType(.numberPad)
                 }
                 
                 Section(header: Text("Contact")) {
-                    TextField("Contact du logement", text: lv.contact)
+                    TextField("Contact du logement", text: $lv.contact)
                         .keyboardType(.phonePad)
                 }
                 
                 Section(header: Text("Lieu")) {
-                    TextField("Lieu du logement", text: lv.lieu)
+                    TextField("Lieu du logement", text: $lv.lieu)
                 }
                 
                 
                 Button(action: {
-                    LogementViewModel.addLogement()
+                    lv.addLogement()
                 }) {
                     Text("ADD")
                         .foregroundColor(.white)

@@ -2,11 +2,11 @@ import Foundation
 import Combine
 
 class LogementViewModel: ObservableObject {
-    @Published var images: [String] = []
+    @Published var images: String = ""
     @Published var titre: String = ""
     @Published var description: String = ""
     @Published var nom: String = ""
-    @Published var nombreChambre: String = ""
+    @Published var nombreChambre: Int = 0
     @Published var prix: Int = 0
     @Published var contact: String = ""
     @Published var lieu: String = ""
@@ -16,7 +16,6 @@ class LogementViewModel: ObservableObject {
 
     func addLogement() {
         LogementService.shared.Logementadd(
-            id: id,
             images:images,
             titre:titre,
             description: description,
@@ -26,19 +25,17 @@ class LogementViewModel: ObservableObject {
             contact : contact,
             lieu: lieu
         
-        ) { [weak self] result in
-                    guard let self = self else { return }
+        ) { result in
             switch result {
-                    case .success(let newlogement):
-                        // Handle the newly created payment object with ID
-                        print("Success: New Logement added - \(newlogement)")
-                        // Optionally, you may want to fetch updated payments after adding a new one
-                        self.fetchPayments()
-                    case .failure(let error):
-                        print("Error: \(error)")
-                    }
-                }
+            case .success(let message):
+      
+                print("Success: \(message)")
+            case .failure(let error):
+       
+                print("Error: \(error)")
             }
+        }
+    }
     
     func fetchLogements() {
          LogementService.shared.getLogement{ [weak self] result in
