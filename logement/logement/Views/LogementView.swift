@@ -65,6 +65,16 @@ struct LogementView: View {
         
         return isValid
     }
+    func validateLettersOnly(_ value: String) -> Bool {
+           let lettersOnly = value.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil
+           return !value.isEmpty && lettersOnly
+       }
+
+       
+       func validateNumbersOnly(_ value: String) -> Bool {
+           let numbersOnly = value.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+           return !value.isEmpty && numbersOnly
+       }
     
 
     var body: some View {
@@ -95,6 +105,7 @@ struct LogementView: View {
                 }
 
                 Section(header: Text("Détails de l'annonce")) {
+                    
                     TextField("Titre", text: $titre)
                         .font(.custom("Montserrat", size: 16))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -105,10 +116,11 @@ struct LogementView: View {
                                 .padding(.horizontal, 8),
                             alignment: .trailing
                         )
-                        .background(isTitreValid ? Color.clear : Color.red.opacity(0.3))
+                        .background(validateLettersOnly(titre) ? Color.clear : Color.red.opacity(0.3))
                         .cornerRadius(6)
                         .onChange(of: titre) { newValue in
                             validateTitre(newValue)
+                             
                         }
                     TextField("Description", text: $description)
                         .font(.custom("Montserrat", size: 16))
@@ -120,7 +132,7 @@ struct LogementView: View {
                                 .padding(.horizontal, 8),
                             alignment: .trailing
                         )
-                        .background(isDescriptionValid ? Color.clear : Color.red.opacity(0.3))
+                        .background(validateLettersOnly(nom) ? Color.clear : Color.red.opacity(0.3))
                         .cornerRadius(6)
                     TextField("Nom", text: $nom)
                         .font(.custom("Montserrat", size: 16))
@@ -138,6 +150,8 @@ struct LogementView: View {
                         Text("Nombre de chambres: \(nombreChambre)")
                     })
                     TextField("Prix", value: $prix, formatter: NumberFormatter())
+                        .background(validateNumbersOnly(String(prix)) ? Color.clear : Color.red.opacity(0.3))
+                            .cornerRadius(6)
                     TextField("Contact", text: $contact)
                         .font(.custom("Montserrat", size: 16))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -148,7 +162,7 @@ struct LogementView: View {
                                 .padding(.horizontal, 8),
                             alignment: .trailing
                         )
-                        .background(isContactValid ? Color.clear : Color.red.opacity(0.3))
+                        .background(validateNumbersOnly(String(prix)) ? Color.clear : Color.red.opacity(0.3))
                         .cornerRadius(6)
                         .onChange(of: contact) { newValue in
                             // Assurez-vous que le nouveau texte commence par "+216" et que le reste est composé de chiffres

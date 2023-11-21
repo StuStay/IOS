@@ -1,4 +1,4 @@
-/*import Foundation
+import Foundation
 
 enum LogementError: Error {
     case invalidURL
@@ -12,7 +12,7 @@ class LogementService {
 
     private let baseURL = "http://localhost:3000/api/logements/logement"
     
-    func createLogement(images: [String], titre: String, description: String,nom: String,nombreChambre: Int,prix: Int,contact: String ,lieu: String , completion: @escaping (Result<String, Error>) -> Void ) {
+    func Logementadd(images: [String], titre: String, description: String, nom: String, nombreChambre: Int, prix: Int, contact: String , lieu: String , completion: @escaping (Result<String, Error>) -> Void ) {
         let urlString = baseURL
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
@@ -53,15 +53,9 @@ class LogementService {
             }
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                let newLogement = try JSONDecoder().decode(Logement.self, from: data)
+                    completion(.success(newLogement))
                 
-                if let message = json?["message"] as? String {
-                    completion(.success(message))
-                } else if let errorMessage = json?["error"] as? String {
-                    completion(.failure(NSError(domain: errorMessage, code: 0, userInfo: nil)))
-                } else {
-                    completion(.failure(NSError(domain: "Unexpected response", code: 0, userInfo: nil)))
-                }
             } catch {
                 completion(.failure(error))
             }
@@ -70,10 +64,10 @@ class LogementService {
         task.resume()
     }
     
-    func getAllLogements(completion: @escaping (Result<[Logement], Error>) -> Void) {
+    func getLogement(completion: @escaping (Result<[Logement], Error>) -> Void) {
         let urlString = baseURL
         guard let url = URL(string: urlString) else {
-            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            completion(.failure(LogementError.invalidURL))
             return
         }
         
@@ -96,7 +90,7 @@ class LogementService {
                 let logements = try JSONDecoder().decode([Logement].self, from: data)
                 completion(.success(logements))
             } catch {
-                completion(.failure(LogementError.decodingError))
+                completion(.failure(error))
             }
         }
         
@@ -141,4 +135,4 @@ class LogementService {
         task.resume()
     }
 }
-*/
+
