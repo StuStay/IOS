@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Report {
+struct Report: Decodable {
     var title: String
     var description: String
     var type: String

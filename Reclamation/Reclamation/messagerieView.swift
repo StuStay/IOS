@@ -56,7 +56,7 @@ struct messagerieView: View {
                 HStack {
                     TextField("type something", text: $messageText)
                         .padding()
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color.gray.opacity(0.3))
                         .cornerRadius(10)
                         .onSubmit {
                             sendMessage(message: messageText)
