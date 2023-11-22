@@ -90,12 +90,18 @@ struct ReservationListView_Previews: PreviewProvider {
 
 struct AddReservationView: View {
     @ObservedObject var rv: ReservationViewModel
+    @State private var showingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
 
+    // Valid locations
+    let validLocations = ["Tunis", "Ariana", "Ben Arous", "Manouba", "Bizerte", "Nabeul", "Beja", "Jendouba", "Zaghouan", "Siliana", "Kef", "Sousse", "Monastir", "Mahdia", "Kasserine", "Sidi Bouzid", "Kairouan", "Gafsa", "Sfax", "Gabes", "Medenine", "Tozeur", "Kebili", "Tataouine"]
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Name")) {
                     TextField("Enter your name", text: $rv.name)
+                    
                 }
 
                 Section(header: Text("Location")) {
@@ -142,18 +148,55 @@ struct AddReservationView: View {
                 }
 
                 Button(action: {
-                    rv.addReservation()
-                }) {
-                    Text("ADD")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                                if isValidInput() {
+                                    rv.addReservation()
+                                } else {
+                                    // Show alert for invalid inputs
+                                    showingAlert = true
+                                }
+                            }) {
+                                Text("ADD")
+                                    .foregroundColor(.white)
+                                    .fontWeight(.bold)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.blue)
+                                    .cornerRadius(10)
+                            }
+                        }
+                        .navigationTitle("Add Reservation")
+                        .alert(isPresented: $showingAlert) {
+                            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                        }
+                    }
+                }
+
+                // Function to check if inputs are valid
+                private func isValidInput() -> Bool {
+                    if rv.name.isEmpty || rv.location.isEmpty || rv.phone.isEmpty || rv.minPrice.isEmpty || rv.maxPrice.isEmpty {
+                        alertTitle = "Error"
+                        alertMessage = "Please fill in all the required fields."
+                        return false
+                    }
+
+                    if !validLocations.contains(rv.location) {
+                        alertTitle = "Error"
+                        alertMessage = "Please enter a valid location from the provided list."
+                        return false
+                    }
+
+                    if rv.phone.count != 8 || !rv.phone.allSatisfy({ $0.isNumber }) {
+                        alertTitle = "Error"
+                        alertMessage = "Please enter a valid 8-digit phone number."
+                        return false
+                    }
+
+                    if let minPrice = Double(rv.minPrice), let maxPrice = Double(rv.maxPrice), minPrice > maxPrice {
+                        alertTitle = "Error"
+                        alertMessage = "Min price cannot be greater than Max price."
+                        return false
+                    }
+
+                    return true
                 }
             }
-            .navigationTitle("Add Reservation")
-        }
-    }
-}
