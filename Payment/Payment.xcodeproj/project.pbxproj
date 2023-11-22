@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD288B412AFEAFBA00523177 /* StripePaymentSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD288B402AFEAFBA00523177 /* StripePaymentSheetView.swift */; };
+		37CFD9342B0B8DF600DFB4FE /* CreditCardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFD9332B0B8DF600DFB4FE /* CreditCardFormView.swift */; };
 		AD7361D62B07A0C400AD4C97 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7361D52B07A0C400AD4C97 /* Payment.swift */; };
 		AD7361D82B07A0FC00AD4C97 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7361D72B07A0FC00AD4C97 /* PaymentService.swift */; };
 		AD7361DC2B07D27400AD4C97 /* paymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7361DB2B07D27400AD4C97 /* paymentViewModel.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AD288B402AFEAFBA00523177 /* StripePaymentSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripePaymentSheetView.swift; sourceTree = "<group>"; };
+		37CFD9332B0B8DF600DFB4FE /* CreditCardFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormView.swift; sourceTree = "<group>"; };
 		AD7361D52B07A0C400AD4C97 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		AD7361D72B07A0FC00AD4C97 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		AD7361DB2B07D27400AD4C97 /* paymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentViewModel.swift; sourceTree = "<group>"; };
@@ -108,10 +108,10 @@
 				ADC9F9F22AFB9B3200813D64 /* ContentView.swift */,
 				ADC9F9F42AFB9B3300813D64 /* Assets.xcassets */,
 				ADD89E112AFD0DF300BC5C4D /* PaymentListView.swift */,
-				AD288B402AFEAFBA00523177 /* StripePaymentSheetView.swift */,
 				AD7361D52B07A0C400AD4C97 /* Payment.swift */,
 				AD7361D72B07A0FC00AD4C97 /* PaymentService.swift */,
 				AD7361DB2B07D27400AD4C97 /* paymentViewModel.swift */,
+				37CFD9332B0B8DF600DFB4FE /* CreditCardFormView.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -268,11 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD288B412AFEAFBA00523177 /* StripePaymentSheetView.swift in Sources */,
 				ADD89E122AFD0DF300BC5C4D /* PaymentListView.swift in Sources */,
 				ADC9F9F32AFB9B3200813D64 /* ContentView.swift in Sources */,
 				ADC9F9F12AFB9B3200813D64 /* PaymentApp.swift in Sources */,
 				AD7361DC2B07D27400AD4C97 /* paymentViewModel.swift in Sources */,
+				37CFD9342B0B8DF600DFB4FE /* CreditCardFormView.swift in Sources */,
 				AD7361D82B07A0FC00AD4C97 /* PaymentService.swift in Sources */,
 				AD7361D62B07A0C400AD4C97 /* Payment.swift in Sources */,
 			);

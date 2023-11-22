@@ -30,9 +30,7 @@ class PaymentViewModel: ObservableObject {
 
             switch result {
             case .success(let newPayment):
-                // Handle the newly created payment object with ID
                 print("Success: New payment added - \(newPayment)")
-                // Optionally, you may want to fetch updated payments after adding a new one
                 self.fetchPayments()
             case .failure(let error):
                 print("Error: \(error)")
@@ -64,7 +62,6 @@ class PaymentViewModel: ObservableObject {
                 switch result {
                 case .success(let deletedPayment):
                     print("Success: Payment deleted - \(deletedPayment)")
-                    // Optionally, you may want to fetch updated payments after deleting one
                     self.fetchPayments()
                 case .failure(let error):
                     print("Error deleting payment: \(error)")
