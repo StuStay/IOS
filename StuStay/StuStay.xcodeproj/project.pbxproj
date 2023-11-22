@@ -1,0 +1,678 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C2EBBB342B0E4B460082F972 /* StuStayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB332B0E4B460082F972 /* StuStayApp.swift */; };
+		C2EBBB382B0E4B480082F972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2EBBB372B0E4B480082F972 /* Assets.xcassets */; };
+		C2EBBB3B2B0E4B480082F972 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2EBBB3A2B0E4B480082F972 /* Preview Assets.xcassets */; };
+		C2EBBB452B0E4B480082F972 /* StuStayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB442B0E4B480082F972 /* StuStayTests.swift */; };
+		C2EBBB4F2B0E4B480082F972 /* StuStayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB4E2B0E4B480082F972 /* StuStayUITests.swift */; };
+		C2EBBB512B0E4B480082F972 /* StuStayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB502B0E4B480082F972 /* StuStayUITestsLaunchTests.swift */; };
+		C2EBBB622B0E4C1C0082F972 /* Logement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB612B0E4C1C0082F972 /* Logement.swift */; };
+		C2EBBB642B0E4C820082F972 /* ReclamationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB632B0E4C820082F972 /* ReclamationModel.swift */; };
+		C2EBBB662B0E4CD10082F972 /* LogementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB652B0E4CD10082F972 /* LogementService.swift */; };
+		C2EBBB682B0E4CFB0082F972 /* ReclamationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB672B0E4CFB0082F972 /* ReclamationsService.swift */; };
+		C2EBBB6A2B0E4DDD0082F972 /* ReclamationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB692B0E4DDD0082F972 /* ReclamationViewModel.swift */; };
+		C2EBBB6C2B0E4E090082F972 /* LogementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB6B2B0E4E090082F972 /* LogementViewModel.swift */; };
+		C2EBBB6E2B0E4E550082F972 /* LogementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB6D2B0E4E550082F972 /* LogementListView.swift */; };
+		C2EBBB702B0E4EAE0082F972 /* ListeReclamationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB6F2B0E4EAE0082F972 /* ListeReclamationView.swift */; };
+		C2EBBB722B0E550D0082F972 /* PaymentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB712B0E550D0082F972 /* PaymentListView.swift */; };
+		C2EBBB742B0E554E0082F972 /* CreditCardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB732B0E554E0082F972 /* CreditCardFormView.swift */; };
+		C2EBBB762B0E55850082F972 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB752B0E55850082F972 /* PaymentService.swift */; };
+		C2EBBB782B0E55C40082F972 /* paymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB772B0E55C40082F972 /* paymentViewModel.swift */; };
+		C2EBBB7A2B0E55F00082F972 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB792B0E55F00082F972 /* Payment.swift */; };
+		C2EBBB7C2B0E568E0082F972 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB7B2B0E568E0082F972 /* ReservationModel.swift */; };
+		C2EBBB7E2B0E56CC0082F972 /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB7D2B0E56CC0082F972 /* ReservationService.swift */; };
+		C2EBBB802B0E57020082F972 /* ReservationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB7F2B0E57020082F972 /* ReservationListView.swift */; };
+		C2EBBB822B0E573B0082F972 /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB812B0E573B0082F972 /* ReservationViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C2EBBB412B0E4B480082F972 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2EBBB282B0E4B460082F972 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2EBBB2F2B0E4B460082F972;
+			remoteInfo = StuStay;
+		};
+		C2EBBB4B2B0E4B480082F972 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2EBBB282B0E4B460082F972 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2EBBB2F2B0E4B460082F972;
+			remoteInfo = StuStay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C2EBBB302B0E4B460082F972 /* StuStay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuStay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2EBBB332B0E4B460082F972 /* StuStayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuStayApp.swift; sourceTree = "<group>"; };
+		C2EBBB372B0E4B480082F972 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C2EBBB3A2B0E4B480082F972 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C2EBBB402B0E4B480082F972 /* StuStayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StuStayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2EBBB442B0E4B480082F972 /* StuStayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuStayTests.swift; sourceTree = "<group>"; };
+		C2EBBB4A2B0E4B480082F972 /* StuStayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StuStayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2EBBB4E2B0E4B480082F972 /* StuStayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuStayUITests.swift; sourceTree = "<group>"; };
+		C2EBBB502B0E4B480082F972 /* StuStayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuStayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C2EBBB612B0E4C1C0082F972 /* Logement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logement.swift; sourceTree = "<group>"; };
+		C2EBBB632B0E4C820082F972 /* ReclamationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReclamationModel.swift; sourceTree = "<group>"; };
+		C2EBBB652B0E4CD10082F972 /* LogementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementService.swift; sourceTree = "<group>"; };
+		C2EBBB672B0E4CFB0082F972 /* ReclamationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReclamationsService.swift; sourceTree = "<group>"; };
+		C2EBBB692B0E4DDD0082F972 /* ReclamationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReclamationViewModel.swift; sourceTree = "<group>"; };
+		C2EBBB6B2B0E4E090082F972 /* LogementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementViewModel.swift; sourceTree = "<group>"; };
+		C2EBBB6D2B0E4E550082F972 /* LogementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementListView.swift; sourceTree = "<group>"; };
+		C2EBBB6F2B0E4EAE0082F972 /* ListeReclamationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeReclamationView.swift; sourceTree = "<group>"; };
+		C2EBBB712B0E550D0082F972 /* PaymentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentListView.swift; sourceTree = "<group>"; };
+		C2EBBB732B0E554E0082F972 /* CreditCardFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormView.swift; sourceTree = "<group>"; };
+		C2EBBB752B0E55850082F972 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
+		C2EBBB772B0E55C40082F972 /* paymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentViewModel.swift; sourceTree = "<group>"; };
+		C2EBBB792B0E55F00082F972 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		C2EBBB7B2B0E568E0082F972 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
+		C2EBBB7D2B0E56CC0082F972 /* ReservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationService.swift; sourceTree = "<group>"; };
+		C2EBBB7F2B0E57020082F972 /* ReservationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListView.swift; sourceTree = "<group>"; };
+		C2EBBB812B0E573B0082F972 /* ReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C2EBBB2D2B0E4B460082F972 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2EBBB3D2B0E4B480082F972 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2EBBB472B0E4B480082F972 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C2EBBB272B0E4B460082F972 = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB322B0E4B460082F972 /* StuStay */,
+				C2EBBB432B0E4B480082F972 /* StuStayTests */,
+				C2EBBB4D2B0E4B480082F972 /* StuStayUITests */,
+				C2EBBB312B0E4B460082F972 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C2EBBB312B0E4B460082F972 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB302B0E4B460082F972 /* StuStay.app */,
+				C2EBBB402B0E4B480082F972 /* StuStayTests.xctest */,
+				C2EBBB4A2B0E4B480082F972 /* StuStayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2EBBB322B0E4B460082F972 /* StuStay */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB602B0E4B9F0082F972 /* Views */,
+				C2EBBB5F2B0E4B930082F972 /* ServiceAPI */,
+				C2EBBB5E2B0E4B880082F972 /* ModelViews */,
+				C2EBBB5D2B0E4B7E0082F972 /* Models */,
+				C2EBBB332B0E4B460082F972 /* StuStayApp.swift */,
+				C2EBBB372B0E4B480082F972 /* Assets.xcassets */,
+				C2EBBB392B0E4B480082F972 /* Preview Content */,
+			);
+			path = StuStay;
+			sourceTree = "<group>";
+		};
+		C2EBBB392B0E4B480082F972 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB3A2B0E4B480082F972 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C2EBBB432B0E4B480082F972 /* StuStayTests */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB442B0E4B480082F972 /* StuStayTests.swift */,
+			);
+			path = StuStayTests;
+			sourceTree = "<group>";
+		};
+		C2EBBB4D2B0E4B480082F972 /* StuStayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB4E2B0E4B480082F972 /* StuStayUITests.swift */,
+				C2EBBB502B0E4B480082F972 /* StuStayUITestsLaunchTests.swift */,
+			);
+			path = StuStayUITests;
+			sourceTree = "<group>";
+		};
+		C2EBBB5D2B0E4B7E0082F972 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB612B0E4C1C0082F972 /* Logement.swift */,
+				C2EBBB632B0E4C820082F972 /* ReclamationModel.swift */,
+				C2EBBB792B0E55F00082F972 /* Payment.swift */,
+				C2EBBB7B2B0E568E0082F972 /* ReservationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2EBBB5E2B0E4B880082F972 /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB692B0E4DDD0082F972 /* ReclamationViewModel.swift */,
+				C2EBBB6B2B0E4E090082F972 /* LogementViewModel.swift */,
+				C2EBBB772B0E55C40082F972 /* paymentViewModel.swift */,
+				C2EBBB812B0E573B0082F972 /* ReservationViewModel.swift */,
+			);
+			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		C2EBBB5F2B0E4B930082F972 /* ServiceAPI */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB652B0E4CD10082F972 /* LogementService.swift */,
+				C2EBBB672B0E4CFB0082F972 /* ReclamationsService.swift */,
+				C2EBBB752B0E55850082F972 /* PaymentService.swift */,
+				C2EBBB7D2B0E56CC0082F972 /* ReservationService.swift */,
+			);
+			path = ServiceAPI;
+			sourceTree = "<group>";
+		};
+		C2EBBB602B0E4B9F0082F972 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2EBBB6D2B0E4E550082F972 /* LogementListView.swift */,
+				C2EBBB6F2B0E4EAE0082F972 /* ListeReclamationView.swift */,
+				C2EBBB712B0E550D0082F972 /* PaymentListView.swift */,
+				C2EBBB732B0E554E0082F972 /* CreditCardFormView.swift */,
+				C2EBBB7F2B0E57020082F972 /* ReservationListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C2EBBB2F2B0E4B460082F972 /* StuStay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2EBBB542B0E4B490082F972 /* Build configuration list for PBXNativeTarget "StuStay" */;
+			buildPhases = (
+				C2EBBB2C2B0E4B460082F972 /* Sources */,
+				C2EBBB2D2B0E4B460082F972 /* Frameworks */,
+				C2EBBB2E2B0E4B460082F972 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StuStay;
+			productName = StuStay;
+			productReference = C2EBBB302B0E4B460082F972 /* StuStay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C2EBBB3F2B0E4B480082F972 /* StuStayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2EBBB572B0E4B490082F972 /* Build configuration list for PBXNativeTarget "StuStayTests" */;
+			buildPhases = (
+				C2EBBB3C2B0E4B480082F972 /* Sources */,
+				C2EBBB3D2B0E4B480082F972 /* Frameworks */,
+				C2EBBB3E2B0E4B480082F972 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C2EBBB422B0E4B480082F972 /* PBXTargetDependency */,
+			);
+			name = StuStayTests;
+			productName = StuStayTests;
+			productReference = C2EBBB402B0E4B480082F972 /* StuStayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C2EBBB492B0E4B480082F972 /* StuStayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2EBBB5A2B0E4B490082F972 /* Build configuration list for PBXNativeTarget "StuStayUITests" */;
+			buildPhases = (
+				C2EBBB462B0E4B480082F972 /* Sources */,
+				C2EBBB472B0E4B480082F972 /* Frameworks */,
+				C2EBBB482B0E4B480082F972 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C2EBBB4C2B0E4B480082F972 /* PBXTargetDependency */,
+			);
+			name = StuStayUITests;
+			productName = StuStayUITests;
+			productReference = C2EBBB4A2B0E4B480082F972 /* StuStayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C2EBBB282B0E4B460082F972 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					C2EBBB2F2B0E4B460082F972 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					C2EBBB3F2B0E4B480082F972 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = C2EBBB2F2B0E4B460082F972;
+					};
+					C2EBBB492B0E4B480082F972 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = C2EBBB2F2B0E4B460082F972;
+					};
+				};
+			};
+			buildConfigurationList = C2EBBB2B2B0E4B460082F972 /* Build configuration list for PBXProject "StuStay" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C2EBBB272B0E4B460082F972;
+			productRefGroup = C2EBBB312B0E4B460082F972 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C2EBBB2F2B0E4B460082F972 /* StuStay */,
+				C2EBBB3F2B0E4B480082F972 /* StuStayTests */,
+				C2EBBB492B0E4B480082F972 /* StuStayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C2EBBB2E2B0E4B460082F972 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2EBBB3B2B0E4B480082F972 /* Preview Assets.xcassets in Resources */,
+				C2EBBB382B0E4B480082F972 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2EBBB3E2B0E4B480082F972 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2EBBB482B0E4B480082F972 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2EBBB2C2B0E4B460082F972 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2EBBB802B0E57020082F972 /* ReservationListView.swift in Sources */,
+				C2EBBB6A2B0E4DDD0082F972 /* ReclamationViewModel.swift in Sources */,
+				C2EBBB7C2B0E568E0082F972 /* ReservationModel.swift in Sources */,
+				C2EBBB682B0E4CFB0082F972 /* ReclamationsService.swift in Sources */,
+				C2EBBB7A2B0E55F00082F972 /* Payment.swift in Sources */,
+				C2EBBB662B0E4CD10082F972 /* LogementService.swift in Sources */,
+				C2EBBB6E2B0E4E550082F972 /* LogementListView.swift in Sources */,
+				C2EBBB7E2B0E56CC0082F972 /* ReservationService.swift in Sources */,
+				C2EBBB742B0E554E0082F972 /* CreditCardFormView.swift in Sources */,
+				C2EBBB822B0E573B0082F972 /* ReservationViewModel.swift in Sources */,
+				C2EBBB622B0E4C1C0082F972 /* Logement.swift in Sources */,
+				C2EBBB702B0E4EAE0082F972 /* ListeReclamationView.swift in Sources */,
+				C2EBBB782B0E55C40082F972 /* paymentViewModel.swift in Sources */,
+				C2EBBB642B0E4C820082F972 /* ReclamationModel.swift in Sources */,
+				C2EBBB6C2B0E4E090082F972 /* LogementViewModel.swift in Sources */,
+				C2EBBB342B0E4B460082F972 /* StuStayApp.swift in Sources */,
+				C2EBBB762B0E55850082F972 /* PaymentService.swift in Sources */,
+				C2EBBB722B0E550D0082F972 /* PaymentListView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2EBBB3C2B0E4B480082F972 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2EBBB452B0E4B480082F972 /* StuStayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2EBBB462B0E4B480082F972 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2EBBB512B0E4B480082F972 /* StuStayUITestsLaunchTests.swift in Sources */,
+				C2EBBB4F2B0E4B480082F972 /* StuStayUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C2EBBB422B0E4B480082F972 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2EBBB2F2B0E4B460082F972 /* StuStay */;
+			targetProxy = C2EBBB412B0E4B480082F972 /* PBXContainerItemProxy */;
+		};
+		C2EBBB4C2B0E4B480082F972 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2EBBB2F2B0E4B460082F972 /* StuStay */;
+			targetProxy = C2EBBB4B2B0E4B480082F972 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C2EBBB522B0E4B480082F972 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C2EBBB532B0E4B490082F972 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C2EBBB552B0E4B490082F972 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"StuStay/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.StuStay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C2EBBB562B0E4B490082F972 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"StuStay/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.StuStay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C2EBBB582B0E4B490082F972 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.StuStayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StuStay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StuStay";
+			};
+			name = Debug;
+		};
+		C2EBBB592B0E4B490082F972 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.StuStayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StuStay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StuStay";
+			};
+			name = Release;
+		};
+		C2EBBB5B2B0E4B490082F972 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.StuStayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StuStay;
+			};
+			name = Debug;
+		};
+		C2EBBB5C2B0E4B490082F972 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.StuStayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StuStay;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C2EBBB2B2B0E4B460082F972 /* Build configuration list for PBXProject "StuStay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2EBBB522B0E4B480082F972 /* Debug */,
+				C2EBBB532B0E4B490082F972 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2EBBB542B0E4B490082F972 /* Build configuration list for PBXNativeTarget "StuStay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2EBBB552B0E4B490082F972 /* Debug */,
+				C2EBBB562B0E4B490082F972 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2EBBB572B0E4B490082F972 /* Build configuration list for PBXNativeTarget "StuStayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2EBBB582B0E4B490082F972 /* Debug */,
+				C2EBBB592B0E4B490082F972 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2EBBB5A2B0E4B490082F972 /* Build configuration list for PBXNativeTarget "StuStayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2EBBB5B2B0E4B490082F972 /* Debug */,
+				C2EBBB5C2B0E4B490082F972 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C2EBBB282B0E4B460082F972 /* Project object */;
+}
