@@ -117,8 +117,8 @@
 			children = (
 				50E2ED192AFBFE4600514FAE /* ReclamationModel.swift */,
 				50D47EAB2B041B7700016B94 /* messagerieView.swift */,
-				5081E85D2B042F5B000107AB /* Botresponse.swift */,
 				50E2ED1B2AFBFE7900514FAE /* ReclamationView.swift */,
+				5081E85D2B042F5B000107AB /* Botresponse.swift */,
 				50E2ED1D2AFBFEF400514FAE /* ReclamationViewModel.swift */,
 				503C13832AFBD47F0034D3A1 /* ReclamationApp.swift */,
 				503C13852AFBD47F0034D3A1 /* ContentView.swift */,

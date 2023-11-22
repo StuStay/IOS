@@ -1,47 +1,32 @@
 import SwiftUI
 
 struct ReclamationView: View {
-    @State private var title: String = ""
-    @State private var description: String = ""
-    @State private var selectedType: String = "Select a type"
-    @State private var state: String = ""
-    @State private var severity: String = ""
+    @ObservedObject var rc: ReclamationViewModel
     @State private var isNextViewActive: Bool = false
-    @StateObject private var viewModel = ReclamationViewModel()
-    @State private var isLoading = false
-    @State public var describe = ""
-    @State private var isShowingMessage = false
-    @State private var showAlert = false
-    @State private var alertMessage = ""
- 
     
     let types = ["Security", "Reservation", "Payment", "Theft"]
     
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                FormSection(title: "Title", placeholder: "Title", text: $title)
+                FormSection(title: "Title", placeholder: "Title", text: $rc.title)
                 
                 // Form Section for Description
-                FormSection(title: "Description", placeholder: "Description", text: $description)
+                FormSection(title: "Description", placeholder: "Description", text: $rc.description)
                 
                 // Form Section for Type
-                FormSectionPicker(title: "Type", options: types, selectedOption: $selectedType)
+                FormSectionPicker(title: "Type", options: types, selectedOption: $rc.selectedType)
                 
                 // Form Section for State
-                FormSection(title: "State", placeholder: "State", text: $state)
+                FormSection(title: "State", placeholder: "State", text: $rc.state)
                 
                 // Form Section for Severity
-                FormSection(title: "Severity", placeholder: "Severity", text: $severity)
+                FormSection(title: "Severity", placeholder: "Severity", text: $rc.severity)
                 
                 VStack {
-                    NavigationLink(
-                        destination: ListeReclamationView(),
-                        isActive: $isNextViewActive) {
-                                            EmptyView()
-                                        }
-                                        .hidden()
+                   
                     Button(action: {
+                        rc.addReclamation()
                         
                     }) {
                         Text("Send")
@@ -97,7 +82,7 @@ struct ReclamationView: View {
 
 struct ReclamationView_Previews: PreviewProvider {
     static var previews: some View {
-        ReclamationView()
+        ListeReclamationView(viewModel: ReclamationViewModel())
     }
 }
 
