@@ -1,4 +1,5 @@
 import SwiftUI
+import MapKit
 
 struct LogementListView: View {
     
@@ -8,8 +9,11 @@ struct LogementListView: View {
     enum Tab {
             case logements, payment, reservation, reclame
         }
+    
     var body: some View {
+        
             NavigationView {
+                
                 VStack {
                     List {
                         ForEach(viewModel.logements) { logement in
@@ -74,10 +78,13 @@ struct LogementListView: View {
                     Label("Reclame", systemImage: "megaphone.fill")
                 }
                 .tag(Tab.reclame)
+               
             }
-        }
-    }
+           
 
+        }
+    
+    }
 
 
 
@@ -97,18 +104,19 @@ struct LogementDetailView: View {
                     Text(logement.titre ?? "")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.white)
                     
                     Text(logement.description ?? "")
                         .font(.body)
                         .foregroundColor(.gray)
+                        .lineLimit(nil) // Allow multiline description
                     
                     Divider()
                     
                     Text("Details")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.white)
                     
                     Text("Nombre de Chambres: \(logement.nombreChambre)")
                         .font(.body)
@@ -123,7 +131,7 @@ struct LogementDetailView: View {
                     Text("Contact")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.white)
                     
                     Text(logement.contact ?? "")
                         .font(.body)
@@ -135,22 +143,61 @@ struct LogementDetailView: View {
                 
                 Spacer() // Add space at the bottom
                 
-                Button(action: {
-                    // Add your payment logic here
-                }) {
-                    Text("Payer")
-                        .font(.headline)
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                HStack(spacing: 16) {
+                    // Payer Button
+                    Button(action: {
+                        // Add your payment logic here
+                    }) {
+                        Text("Payer")
+                            .font(.headline)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                            .shadow(color: .blue, radius: 5, x: 0, y: 5)
+                    }
+                    
+                    // Share Button
+                    Button(action: {
+                        shareLogement()
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.headline)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.green)
+                            .cornerRadius(10)
+                    }
+                    
+                    // Edit Button
+                    NavigationLink(destination: EditLogementView(logement: logement)) {
+                        Image(systemName: "pencil")
+                            .font(.headline)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.orange)
+                            .cornerRadius(10)
+                    }
                 }
                 .padding(.horizontal, 16)
             }
         }
-        .navigationBarTitle("Logement Detail", displayMode: .inline)
-        .background(Color.white)
+        .navigationBarTitle("StuStay", displayMode: .inline)
+        .foregroundColor(.white)
+        .background(Color(.sRGB, red: 10/255, green: 10/255, blue: 40/255, opacity: 1.0))
         .edgesIgnoringSafeArea(.all)
+    }
+
+    func shareLogement() {
+        let logementTitle = logement.titre ?? ""
+        let logementDescription = logement.description ?? ""
+
+        let logementURL = "https://yourlogementurl.com" // Replace with the actual URL
+
+        let items: [Any] = [logementTitle, logementDescription, logementURL]
+
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
 }
 
@@ -170,6 +217,12 @@ struct AddLogementView: View {
        @State private var alertMessage = ""
        @State private var selectedCountryCode = "+1"
     @State private var images: [UIImage] = []
+    @State private var region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 36.8663, longitude: 10.1645), // Ariana, Tunisia
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        )
+    @State private var selectedLocation: CLLocationCoordinate2D?
+  
     var body: some View {
         NavigationView {
             Form {
@@ -183,7 +236,10 @@ struct AddLogementView: View {
                             .autocapitalization(.words)
                     }
                     
-
+                    
+                    
+                    
+                    
                     HStack {
                         Image(systemName: "text.bubble")
                             .foregroundColor(.cyan)
@@ -248,6 +304,8 @@ struct AddLogementView: View {
                             .disableAutocorrection(true)
                             .autocapitalization(.words)
                     }
+                    Map(coordinateRegion: $region)
+                                          .frame(height: 200)
                 }
                 Section(header: Text("Images")) {
                     Button("Ajouter des images") {
@@ -287,7 +345,7 @@ struct AddLogementView: View {
                                 .padding()
                         }
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
+                        .background(Color(.sRGB, red: 10/255, green: 10/255, blue: 40/255, opacity: 1.0))
                         .cornerRadius(10)
                         .shadow(color: .blue, radius: 5, x: 0, y: 5)
                     }
