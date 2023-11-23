@@ -23,6 +23,8 @@
 		50D47EAC2B041B7700016B94 /* messagerieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D47EAB2B041B7700016B94 /* messagerieView.swift */; };
 		50E2ED1A2AFBFE4600514FAE /* ReclamationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2ED192AFBFE4600514FAE /* ReclamationModel.swift */; };
 		50E2ED1E2AFBFEF400514FAE /* ReclamationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2ED1D2AFBFEF400514FAE /* ReclamationViewModel.swift */; };
+		50F54C2F2B0A5693002CCBB7 /* ListeReclamationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F54C2E2B0A5693002CCBB7 /* ListeReclamationView.swift */; };
+		50F54C332B0A685D002CCBB7 /* ReclamationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F54C322B0A685D002CCBB7 /* ReclamationsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		50E2ED192AFBFE4600514FAE /* ReclamationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReclamationModel.swift; sourceTree = "<group>"; };
 		50E2ED1B2AFBFE7900514FAE /* ReclamationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReclamationView.swift; sourceTree = "<group>"; };
 		50E2ED1D2AFBFEF400514FAE /* ReclamationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReclamationViewModel.swift; sourceTree = "<group>"; };
+		50F54C2E2B0A5693002CCBB7 /* ListeReclamationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeReclamationView.swift; sourceTree = "<group>"; };
+		50F54C322B0A685D002CCBB7 /* ReclamationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReclamationsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +117,8 @@
 			children = (
 				50E2ED192AFBFE4600514FAE /* ReclamationModel.swift */,
 				50D47EAB2B041B7700016B94 /* messagerieView.swift */,
-				5081E85D2B042F5B000107AB /* Botresponse.swift */,
 				50E2ED1B2AFBFE7900514FAE /* ReclamationView.swift */,
+				5081E85D2B042F5B000107AB /* Botresponse.swift */,
 				50E2ED1D2AFBFEF400514FAE /* ReclamationViewModel.swift */,
 				503C13832AFBD47F0034D3A1 /* ReclamationApp.swift */,
 				503C13852AFBD47F0034D3A1 /* ContentView.swift */,
@@ -123,6 +127,8 @@
 				503C138E2AFBD4800034D3A1 /* Reclamation.xcdatamodeld */,
 				503C13892AFBD4800034D3A1 /* Preview Content */,
 				505A0EA92B05982E0077D7BE /* HousePostingew.swift */,
+				50F54C2E2B0A5693002CCBB7 /* ListeReclamationView.swift */,
+				50F54C322B0A685D002CCBB7 /* ReclamationsService.swift */,
 			);
 			path = Reclamation;
 			sourceTree = "<group>";
@@ -286,9 +292,11 @@
 				503C138D2AFBD4800034D3A1 /* Persistence.swift in Sources */,
 				50E2ED1A2AFBFE4600514FAE /* ReclamationModel.swift in Sources */,
 				5081E85E2B042F5B000107AB /* Botresponse.swift in Sources */,
+				50F54C332B0A685D002CCBB7 /* ReclamationsService.swift in Sources */,
 				503C13862AFBD47F0034D3A1 /* ContentView.swift in Sources */,
 				50E2ED1E2AFBFEF400514FAE /* ReclamationViewModel.swift in Sources */,
 				503C13842AFBD47F0034D3A1 /* ReclamationApp.swift in Sources */,
+				50F54C2F2B0A5693002CCBB7 /* ListeReclamationView.swift in Sources */,
 				505A0EAA2B05982E0077D7BE /* HousePostingew.swift in Sources */,
 				503C13902AFBD4800034D3A1 /* Reclamation.xcdatamodeld in Sources */,
 				50D47EAC2B041B7700016B94 /* messagerieView.swift in Sources */,

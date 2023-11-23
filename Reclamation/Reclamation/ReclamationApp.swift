@@ -13,7 +13,7 @@ struct ReclamationApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ReclamationView()
+            ListeReclamationView(viewModel: ReclamationViewModel())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
