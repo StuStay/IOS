@@ -45,67 +45,54 @@ struct LogementListView: View {
                 HStack {
                     NavigationLink(destination: AddLogementView(lv: viewModel)) {
                         Image(systemName: "plus.circle")
-                            .imageScale(.large) // Set the image scale to large
-                            .foregroundColor(.blue) // Set the icon color to blue
-                            .padding(.horizontal, 20) // Add horizontal padding for better spacing
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .padding(.horizontal, 20)
                     }
                     .overlay(
-                        Divider(), alignment: .trailing // Add a divider to the trailing edge of the "Add" icon
+                        Divider(), alignment: .trailing
                     )
 
                     NavigationLink(destination: PaymentListView(viewModel: paymentViewModel)) {
                         Image(systemName: "dollarsign.circle")
-                            .imageScale(.large) // Set the image scale to large
-                            .foregroundColor(.blue) // Set the icon color to blue
-                            .padding(.horizontal, 20) // Add horizontal padding for better spacing
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .padding(.horizontal, 20)
                     }
                     .overlay(
-                        Divider(), alignment: .trailing // Add a divider to the trailing edge of the "Payment" icon
+                        Divider(), alignment: .trailing
                     )
 
                     NavigationLink(destination: ReservationListView(viewModel: reservationViewModel)) {
-                        Image(systemName: "doc.circle") // Change to paper icon
-                            .imageScale(.large) // Set the image scale to large
-                            .foregroundColor(.blue) // Set the icon color to blue
-                            .padding(.horizontal, 20) // Add horizontal padding for better spacing
+                        Image(systemName: "doc.circle")
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .padding(.horizontal, 20)
                     }
                     .overlay(
-                        Divider(), alignment: .trailing // Add a divider to the trailing edge of the "Reservation" icon
+                        Divider(), alignment: .trailing
                     )
 
                     NavigationLink(destination: ListeReclamationView(viewModel: reclamationViewModel)) {
-                        Image(systemName: "gearshape.circle") // Change to setting icon
-                            .imageScale(.large) // Set the image scale to large
-                            .foregroundColor(.blue) // Set the icon color to blue
-                            .padding(.horizontal, 20) // Add horizontal padding for better spacing
+                        Image(systemName: "gearshape.circle")
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .padding(.horizontal, 20)
                     }
                 }
             }
-            
-
-            // This empty Text view is added to trigger the navigation bar title update
-            // without it, the navigation bar title might not show up immediately
-
+            .navigationTitle("Logements") // Set the desired title
         }
     }
 }
 
-
-
 struct LogementListView_Previews: PreviewProvider {
     static var previews: some View {
-        // Create instances of your view models
-        let logementViewModel = LogementViewModel()
-        let paymentViewModel = PaymentViewModel()
-        let reclamationViewModel = ReclamationViewModel()
-        let reservationViewModel = ReservationViewModel()
-
-        // Pass the view models to LogementListView
         LogementListView(
-            viewModel: logementViewModel,
-            paymentViewModel: paymentViewModel,
-            reclamationViewModel: reclamationViewModel,
-            reservationViewModel: reservationViewModel
+            viewModel: LogementViewModel(),
+            paymentViewModel: PaymentViewModel(),
+            reclamationViewModel: ReclamationViewModel(),
+            reservationViewModel: ReservationViewModel()
         )
     }
 }

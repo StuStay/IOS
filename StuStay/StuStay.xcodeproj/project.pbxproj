@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3701FC2E2B0EFE98007487EE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3701FC2D2B0EFE98007487EE /* LoginView.swift */; };
 		C2EBBB342B0E4B460082F972 /* StuStayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBBB332B0E4B460082F972 /* StuStayApp.swift */; };
 		C2EBBB382B0E4B480082F972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2EBBB372B0E4B480082F972 /* Assets.xcassets */; };
 		C2EBBB3B2B0E4B480082F972 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2EBBB3A2B0E4B480082F972 /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3701FC2D2B0EFE98007487EE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C2EBBB302B0E4B460082F972 /* StuStay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuStay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EBBB332B0E4B460082F972 /* StuStayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuStayApp.swift; sourceTree = "<group>"; };
 		C2EBBB372B0E4B480082F972 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				C2EBBB712B0E550D0082F972 /* PaymentListView.swift */,
 				C2EBBB732B0E554E0082F972 /* CreditCardFormView.swift */,
 				C2EBBB7F2B0E57020082F972 /* ReservationListView.swift */,
+				3701FC2D2B0EFE98007487EE /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				C2EBBB642B0E4C820082F972 /* ReclamationModel.swift in Sources */,
 				C2EBBB6C2B0E4E090082F972 /* LogementViewModel.swift in Sources */,
 				C2EBBB342B0E4B460082F972 /* StuStayApp.swift in Sources */,
+				3701FC2E2B0EFE98007487EE /* LoginView.swift in Sources */,
 				C2EBBB762B0E55850082F972 /* PaymentService.swift in Sources */,
 				C2EBBB722B0E550D0082F972 /* PaymentListView.swift in Sources */,
 			);
@@ -441,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -495,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -520,7 +524,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = "16,1";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,7 +553,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = "16,1";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

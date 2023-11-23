@@ -11,6 +11,8 @@ struct CreditCardFormView: View {
     @State private var cvv = ""
     @State private var selectedCardType: CardType = .edinar
     @State private var showAlert = false
+    @State private var paymentProcessed = false
+
     @Environment(\.presentationMode) var presentationMode
     var onDismiss: () -> Void
 
@@ -93,12 +95,14 @@ struct CreditCardFormView: View {
                     title: Text("Payment Successful"),
                     message: Text("Thank you for your payment"),
                     primaryButton: .default(Text("OK")) {
-                        onDismiss()
-                        presentationMode.wrappedValue.dismiss()
+                        onDismiss() // Call the onDismiss closure the first time
+                           presentationMode.wrappedValue.dismiss() // Dismiss the current view
+                           presentationMode.wrappedValue.dismiss() // Dismiss the previous view
                     },
                     secondaryButton: .cancel()
                 )
             }
+
             Spacer()
         }
         .padding()

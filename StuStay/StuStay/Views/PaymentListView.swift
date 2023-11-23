@@ -10,6 +10,7 @@ import SwiftUI
 struct PaymentListView: View {
     @ObservedObject var viewModel: PaymentViewModel
     @State private var isRefreshing = false
+    
 
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -69,6 +70,7 @@ struct AddPaymentView: View {
     @ObservedObject var paymentViewModel: PaymentViewModel
     @State private var navigateToCreditCardForm = false
     @Environment(\.presentationMode) var presentationMode
+    @State private var showAlert = false
 
     var body: some View {
         NavigationView {
@@ -80,8 +82,16 @@ struct AddPaymentView: View {
                         TextField("Enter amount", text: Binding(
                             get: { "\(paymentViewModel.amount)" },
                             set: {
-                                if let newValue = Int($0) {
-                                    paymentViewModel.amount = newValue
+                                // Use a regular expression to check if the entered text is a valid number
+                                let isValid = $0.isEmpty || $0.range(of: #"^\d+$"#, options: .regularExpression) != nil
+
+                                if isValid {
+                                    if let newValue = Int($0) {
+                                        paymentViewModel.amount = newValue
+                                    }
+                                } else {
+                                    // Show the alert when the entered amount is not a valid number
+                                    showAlert = true
                                 }
                             }
                         ))
@@ -156,6 +166,13 @@ struct AddPaymentView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Invalid Amount"),
+                    message: Text("Please enter a valid number for the amount."),
+                    dismissButton: .default(Text("OK"))
+                )
             }
             
             .navigationTitle("Add Payment")
