@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD288B412AFEAFBA00523177 /* StripePaymentSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD288B402AFEAFBA00523177 /* StripePaymentSheetView.swift */; };
+		37CFD9342B0B8DF600DFB4FE /* CreditCardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFD9332B0B8DF600DFB4FE /* CreditCardFormView.swift */; };
+		AD7361D62B07A0C400AD4C97 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7361D52B07A0C400AD4C97 /* Payment.swift */; };
+		AD7361D82B07A0FC00AD4C97 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7361D72B07A0FC00AD4C97 /* PaymentService.swift */; };
+		AD7361DC2B07D27400AD4C97 /* paymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7361DB2B07D27400AD4C97 /* paymentViewModel.swift */; };
 		ADC9F9F12AFB9B3200813D64 /* PaymentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9F9F02AFB9B3200813D64 /* PaymentApp.swift */; };
 		ADC9F9F32AFB9B3200813D64 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9F9F22AFB9B3200813D64 /* ContentView.swift */; };
 		ADC9F9F52AFB9B3300813D64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADC9F9F42AFB9B3300813D64 /* Assets.xcassets */; };
 		ADC9FA022AFB9B3300813D64 /* PaymentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9FA012AFB9B3300813D64 /* PaymentTests.swift */; };
 		ADC9FA0C2AFB9B3300813D64 /* PaymentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9FA0B2AFB9B3300813D64 /* PaymentUITests.swift */; };
 		ADC9FA0E2AFB9B3300813D64 /* PaymentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9FA0D2AFB9B3300813D64 /* PaymentUITestsLaunchTests.swift */; };
+		ADCF14542B06347A00FF0B6F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ADCF14532B06347A00FF0B6F /* Alamofire */; };
 		ADD89E122AFD0DF300BC5C4D /* PaymentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD89E112AFD0DF300BC5C4D /* PaymentListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AD288B402AFEAFBA00523177 /* StripePaymentSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripePaymentSheetView.swift; sourceTree = "<group>"; };
+		37CFD9332B0B8DF600DFB4FE /* CreditCardFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormView.swift; sourceTree = "<group>"; };
+		AD7361D52B07A0C400AD4C97 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		AD7361D72B07A0FC00AD4C97 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
+		AD7361DB2B07D27400AD4C97 /* paymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentViewModel.swift; sourceTree = "<group>"; };
 		ADC9F9ED2AFB9B3200813D64 /* Payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC9F9F02AFB9B3200813D64 /* PaymentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentApp.swift; sourceTree = "<group>"; };
 		ADC9F9F22AFB9B3200813D64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADCF14542B06347A00FF0B6F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +108,10 @@
 				ADC9F9F22AFB9B3200813D64 /* ContentView.swift */,
 				ADC9F9F42AFB9B3300813D64 /* Assets.xcassets */,
 				ADD89E112AFD0DF300BC5C4D /* PaymentListView.swift */,
-				AD288B402AFEAFBA00523177 /* StripePaymentSheetView.swift */,
+				AD7361D52B07A0C400AD4C97 /* Payment.swift */,
+				AD7361D72B07A0FC00AD4C97 /* PaymentService.swift */,
+				AD7361DB2B07D27400AD4C97 /* paymentViewModel.swift */,
+				37CFD9332B0B8DF600DFB4FE /* CreditCardFormView.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -138,6 +149,9 @@
 			dependencies = (
 			);
 			name = Payment;
+			packageProductDependencies = (
+				ADCF14532B06347A00FF0B6F /* Alamofire */,
+			);
 			productName = Payment;
 			productReference = ADC9F9ED2AFB9B3200813D64 /* Payment.app */;
 			productType = "com.apple.product-type.application";
@@ -210,6 +224,9 @@
 				Base,
 			);
 			mainGroup = ADC9F9E42AFB9B3200813D64;
+			packageReferences = (
+				ADCF14522B06347A00FF0B6F /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = ADC9F9EE2AFB9B3200813D64 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -251,10 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD288B412AFEAFBA00523177 /* StripePaymentSheetView.swift in Sources */,
 				ADD89E122AFD0DF300BC5C4D /* PaymentListView.swift in Sources */,
 				ADC9F9F32AFB9B3200813D64 /* ContentView.swift in Sources */,
 				ADC9F9F12AFB9B3200813D64 /* PaymentApp.swift in Sources */,
+				AD7361DC2B07D27400AD4C97 /* paymentViewModel.swift in Sources */,
+				37CFD9342B0B8DF600DFB4FE /* CreditCardFormView.swift in Sources */,
+				AD7361D82B07A0FC00AD4C97 /* PaymentService.swift in Sources */,
+				AD7361D62B07A0C400AD4C97 /* Payment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +593,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ADCF14522B06347A00FF0B6F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ADCF14532B06347A00FF0B6F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADCF14522B06347A00FF0B6F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ADC9F9E52AFB9B3200813D64 /* Project object */;
 }
