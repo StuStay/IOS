@@ -1,4 +1,4 @@
-import SwiftUI
+/*import SwiftUI
 
 struct LogementView: View {
     @State private var images: [UIImage] = []
@@ -274,3 +274,4 @@ struct LogementView_Previews: PreviewProvider {
     
 }
     
+*/

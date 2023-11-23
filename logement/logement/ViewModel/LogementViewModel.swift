@@ -14,7 +14,16 @@ class LogementViewModel: ObservableObject {
 
     @Published var logements: [Logement] = []
 
+    func addLogement(imageData: Data?) {
+            // ... your existing code ...
 
+            // Upload image if imageData is provided
+            if let imageData = imageData {
+                // Handle image upload logic
+                // You might want to use a cloud storage service for image upload (e.g., Firebase Storage)
+                // Update the 'image' property in the Logement model with the URL or identifier of the uploaded image
+            }
+        }
     func addLogement() {
         LogementService.shared.Logementadd(
             images:images,
@@ -35,6 +44,7 @@ class LogementViewModel: ObservableObject {
        
                 print("Error: \(error)")
             }
+            
         }
     }
     

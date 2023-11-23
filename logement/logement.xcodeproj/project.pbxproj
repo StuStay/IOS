@@ -26,6 +26,7 @@
 		C2634EF42B0C5EAD008BEFB7 /* LogementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2634EF32B0C5EAD008BEFB7 /* LogementListView.swift */; };
 		C29B09982B0D2A7500151571 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B09972B0D2A7500151571 /* ProfileView.swift */; };
 		C29B099A2B0D2A9300151571 /* ReclameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B09992B0D2A9300151571 /* ReclameView.swift */; };
+		C2A17E202B0ECE0000A56F26 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A17E1F2B0ECE0000A56F26 /* PaymentView.swift */; };
 		C2B71CBA2B0C6D2D00378D76 /* SocialShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B71CB92B0C6D2D00378D76 /* SocialShareSheet.swift */; };
 		C2B71CBC2B0C709A00378D76 /* FilterLogementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B71CBB2B0C709A00378D76 /* FilterLogementsView.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		C2634EF32B0C5EAD008BEFB7 /* LogementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogementListView.swift; sourceTree = "<group>"; };
 		C29B09972B0D2A7500151571 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C29B09992B0D2A9300151571 /* ReclameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReclameView.swift; sourceTree = "<group>"; };
+		C2A17E1F2B0ECE0000A56F26 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		C2B71CB92B0C6D2D00378D76 /* SocialShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialShareSheet.swift; sourceTree = "<group>"; };
 		C2B71CBB2B0C709A00378D76 /* FilterLogementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterLogementsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				C2B71CBB2B0C709A00378D76 /* FilterLogementsView.swift */,
 				C29B09972B0D2A7500151571 /* ProfileView.swift */,
 				C29B09992B0D2A9300151571 /* ReclameView.swift */,
+				C2A17E1F2B0ECE0000A56F26 /* PaymentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				C2634EE32B0C42AB008BEFB7 /* LogementEditView.swift in Sources */,
 				C2634EB92B0C4180008BEFB7 /* logement.xcdatamodeld in Sources */,
 				C29B09982B0D2A7500151571 /* ProfileView.swift in Sources */,
+				C2A17E202B0ECE0000A56F26 /* PaymentView.swift in Sources */,
 				C2634EEC2B0C5CDB008BEFB7 /* LogementService.swift in Sources */,
 				C2B71CBA2B0C6D2D00378D76 /* SocialShareSheet.swift in Sources */,
 				C2634EB62B0C4180008BEFB7 /* Persistence.swift in Sources */,

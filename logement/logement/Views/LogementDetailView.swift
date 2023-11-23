@@ -1,4 +1,4 @@
-import SwiftUI
+/*import SwiftUI
 import Social
 
 struct LogementDetailView: View {
@@ -227,3 +227,4 @@ struct LogementDetailView: View {
 
     
 
+*/
