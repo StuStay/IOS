@@ -7,63 +7,67 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43415A9C2B060D19002541AB /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43415A9B2B060D19002541AB /* Reservation.swift */; };
-		43667BC92AFEACBA006917C5 /* ReservationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43667BC82AFEACBA006917C5 /* ReservationApp.swift */; };
-		43667BCB2AFEACBA006917C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43667BCA2AFEACBA006917C5 /* ContentView.swift */; };
-		43667BCD2AFEACBB006917C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43667BCC2AFEACBB006917C5 /* Assets.xcassets */; };
-		43667BD02AFEACBB006917C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43667BCF2AFEACBB006917C5 /* Preview Assets.xcassets */; };
-		43667BDA2AFEACBB006917C5 /* ReservationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43667BD92AFEACBB006917C5 /* ReservationTests.swift */; };
-		43667BE42AFEACBB006917C5 /* ReservationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43667BE32AFEACBB006917C5 /* ReservationUITests.swift */; };
-		43667BE62AFEACBB006917C5 /* ReservationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43667BE52AFEACBB006917C5 /* ReservationUITestsLaunchTests.swift */; };
+		437BAE702B07A15C00F94E7C /* ReservationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAE6F2B07A15C00F94E7C /* ReservationApp.swift */; };
+		437BAE742B07A15D00F94E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437BAE732B07A15D00F94E7C /* Assets.xcassets */; };
+		437BAE772B07A15D00F94E7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437BAE762B07A15D00F94E7C /* Preview Assets.xcassets */; };
+		437BAE812B07A15E00F94E7C /* ReservationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAE802B07A15E00F94E7C /* ReservationTests.swift */; };
+		437BAE8B2B07A15E00F94E7C /* ReservationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAE8A2B07A15E00F94E7C /* ReservationUITests.swift */; };
+		437BAE8D2B07A15E00F94E7C /* ReservationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAE8C2B07A15E00F94E7C /* ReservationUITestsLaunchTests.swift */; };
+		437BAE9E2B07A22700F94E7C /* ReservationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAE9D2B07A22700F94E7C /* ReservationListView.swift */; };
+		437BAEA02B07A28400F94E7C /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAE9F2B07A28400F94E7C /* ReservationModel.swift */; };
+		437BAEA22B07A2B600F94E7C /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAEA12B07A2B600F94E7C /* ReservationService.swift */; };
+		437BAEA42B07A2E700F94E7C /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAEA32B07A2E700F94E7C /* ReservationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		43667BD62AFEACBB006917C5 /* PBXContainerItemProxy */ = {
+		437BAE7D2B07A15E00F94E7C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 43667BBD2AFEACBA006917C5 /* Project object */;
+			containerPortal = 437BAE642B07A15B00F94E7C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 43667BC42AFEACBA006917C5;
+			remoteGlobalIDString = 437BAE6B2B07A15C00F94E7C;
 			remoteInfo = Reservation;
 		};
-		43667BE02AFEACBB006917C5 /* PBXContainerItemProxy */ = {
+		437BAE872B07A15E00F94E7C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 43667BBD2AFEACBA006917C5 /* Project object */;
+			containerPortal = 437BAE642B07A15B00F94E7C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 43667BC42AFEACBA006917C5;
+			remoteGlobalIDString = 437BAE6B2B07A15C00F94E7C;
 			remoteInfo = Reservation;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		43415A9B2B060D19002541AB /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
-		43667BC52AFEACBA006917C5 /* Reservation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reservation.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		43667BC82AFEACBA006917C5 /* ReservationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationApp.swift; sourceTree = "<group>"; };
-		43667BCA2AFEACBA006917C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		43667BCC2AFEACBB006917C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		43667BCF2AFEACBB006917C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		43667BD52AFEACBB006917C5 /* ReservationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReservationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43667BD92AFEACBB006917C5 /* ReservationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTests.swift; sourceTree = "<group>"; };
-		43667BDF2AFEACBB006917C5 /* ReservationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReservationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43667BE32AFEACBB006917C5 /* ReservationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationUITests.swift; sourceTree = "<group>"; };
-		43667BE52AFEACBB006917C5 /* ReservationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		437BAE6C2B07A15C00F94E7C /* Reservation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reservation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		437BAE6F2B07A15C00F94E7C /* ReservationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationApp.swift; sourceTree = "<group>"; };
+		437BAE732B07A15D00F94E7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		437BAE762B07A15D00F94E7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		437BAE7C2B07A15E00F94E7C /* ReservationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReservationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		437BAE802B07A15E00F94E7C /* ReservationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTests.swift; sourceTree = "<group>"; };
+		437BAE862B07A15E00F94E7C /* ReservationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReservationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		437BAE8A2B07A15E00F94E7C /* ReservationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationUITests.swift; sourceTree = "<group>"; };
+		437BAE8C2B07A15E00F94E7C /* ReservationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		437BAE9D2B07A22700F94E7C /* ReservationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListView.swift; sourceTree = "<group>"; };
+		437BAE9F2B07A28400F94E7C /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
+		437BAEA12B07A2B600F94E7C /* ReservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationService.swift; sourceTree = "<group>"; };
+		437BAEA32B07A2E700F94E7C /* ReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		43667BC22AFEACBA006917C5 /* Frameworks */ = {
+		437BAE692B07A15C00F94E7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43667BD22AFEACBB006917C5 /* Frameworks */ = {
+		437BAE792B07A15E00F94E7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43667BDC2AFEACBB006917C5 /* Frameworks */ = {
+		437BAE832B07A15E00F94E7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,75 +77,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		43415A9A2B060D09002541AB /* model */ = {
+		437BAE632B07A15B00F94E7C = {
 			isa = PBXGroup;
 			children = (
-				43415A9B2B060D19002541AB /* Reservation.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		43415A9D2B060D59002541AB /* view */ = {
-			isa = PBXGroup;
-			children = (
-				43667BCA2AFEACBA006917C5 /* ContentView.swift */,
-				43667BC82AFEACBA006917C5 /* ReservationApp.swift */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		43667BBC2AFEACB9006917C5 = {
-			isa = PBXGroup;
-			children = (
-				43667BC72AFEACBA006917C5 /* Reservation */,
-				43667BD82AFEACBB006917C5 /* ReservationTests */,
-				43667BE22AFEACBB006917C5 /* ReservationUITests */,
-				43667BC62AFEACBA006917C5 /* Products */,
+				437BAE6E2B07A15C00F94E7C /* Reservation */,
+				437BAE7F2B07A15E00F94E7C /* ReservationTests */,
+				437BAE892B07A15E00F94E7C /* ReservationUITests */,
+				437BAE6D2B07A15C00F94E7C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		43667BC62AFEACBA006917C5 /* Products */ = {
+		437BAE6D2B07A15C00F94E7C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				43667BC52AFEACBA006917C5 /* Reservation.app */,
-				43667BD52AFEACBB006917C5 /* ReservationTests.xctest */,
-				43667BDF2AFEACBB006917C5 /* ReservationUITests.xctest */,
+				437BAE6C2B07A15C00F94E7C /* Reservation.app */,
+				437BAE7C2B07A15E00F94E7C /* ReservationTests.xctest */,
+				437BAE862B07A15E00F94E7C /* ReservationUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		43667BC72AFEACBA006917C5 /* Reservation */ = {
+		437BAE6E2B07A15C00F94E7C /* Reservation */ = {
 			isa = PBXGroup;
 			children = (
-				43415A9D2B060D59002541AB /* view */,
-				43415A9A2B060D09002541AB /* model */,
-				43667BCC2AFEACBB006917C5 /* Assets.xcassets */,
-				43667BCE2AFEACBB006917C5 /* Preview Content */,
+				437BAE6F2B07A15C00F94E7C /* ReservationApp.swift */,
+				437BAE732B07A15D00F94E7C /* Assets.xcassets */,
+				437BAE752B07A15D00F94E7C /* Preview Content */,
+				437BAE9D2B07A22700F94E7C /* ReservationListView.swift */,
+				437BAE9F2B07A28400F94E7C /* ReservationModel.swift */,
+				437BAEA12B07A2B600F94E7C /* ReservationService.swift */,
+				437BAEA32B07A2E700F94E7C /* ReservationViewModel.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
 		};
-		43667BCE2AFEACBB006917C5 /* Preview Content */ = {
+		437BAE752B07A15D00F94E7C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				43667BCF2AFEACBB006917C5 /* Preview Assets.xcassets */,
+				437BAE762B07A15D00F94E7C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		43667BD82AFEACBB006917C5 /* ReservationTests */ = {
+		437BAE7F2B07A15E00F94E7C /* ReservationTests */ = {
 			isa = PBXGroup;
 			children = (
-				43667BD92AFEACBB006917C5 /* ReservationTests.swift */,
+				437BAE802B07A15E00F94E7C /* ReservationTests.swift */,
 			);
 			path = ReservationTests;
 			sourceTree = "<group>";
 		};
-		43667BE22AFEACBB006917C5 /* ReservationUITests */ = {
+		437BAE892B07A15E00F94E7C /* ReservationUITests */ = {
 			isa = PBXGroup;
 			children = (
-				43667BE32AFEACBB006917C5 /* ReservationUITests.swift */,
-				43667BE52AFEACBB006917C5 /* ReservationUITestsLaunchTests.swift */,
+				437BAE8A2B07A15E00F94E7C /* ReservationUITests.swift */,
+				437BAE8C2B07A15E00F94E7C /* ReservationUITestsLaunchTests.swift */,
 			);
 			path = ReservationUITests;
 			sourceTree = "<group>";
@@ -149,13 +139,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		43667BC42AFEACBA006917C5 /* Reservation */ = {
+		437BAE6B2B07A15C00F94E7C /* Reservation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43667BE92AFEACBB006917C5 /* Build configuration list for PBXNativeTarget "Reservation" */;
+			buildConfigurationList = 437BAE902B07A15E00F94E7C /* Build configuration list for PBXNativeTarget "Reservation" */;
 			buildPhases = (
-				43667BC12AFEACBA006917C5 /* Sources */,
-				43667BC22AFEACBA006917C5 /* Frameworks */,
-				43667BC32AFEACBA006917C5 /* Resources */,
+				437BAE682B07A15C00F94E7C /* Sources */,
+				437BAE692B07A15C00F94E7C /* Frameworks */,
+				437BAE6A2B07A15C00F94E7C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -163,69 +153,69 @@
 			);
 			name = Reservation;
 			productName = Reservation;
-			productReference = 43667BC52AFEACBA006917C5 /* Reservation.app */;
+			productReference = 437BAE6C2B07A15C00F94E7C /* Reservation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		43667BD42AFEACBB006917C5 /* ReservationTests */ = {
+		437BAE7B2B07A15E00F94E7C /* ReservationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43667BEC2AFEACBB006917C5 /* Build configuration list for PBXNativeTarget "ReservationTests" */;
+			buildConfigurationList = 437BAE932B07A15E00F94E7C /* Build configuration list for PBXNativeTarget "ReservationTests" */;
 			buildPhases = (
-				43667BD12AFEACBB006917C5 /* Sources */,
-				43667BD22AFEACBB006917C5 /* Frameworks */,
-				43667BD32AFEACBB006917C5 /* Resources */,
+				437BAE782B07A15E00F94E7C /* Sources */,
+				437BAE792B07A15E00F94E7C /* Frameworks */,
+				437BAE7A2B07A15E00F94E7C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				43667BD72AFEACBB006917C5 /* PBXTargetDependency */,
+				437BAE7E2B07A15E00F94E7C /* PBXTargetDependency */,
 			);
 			name = ReservationTests;
 			productName = ReservationTests;
-			productReference = 43667BD52AFEACBB006917C5 /* ReservationTests.xctest */;
+			productReference = 437BAE7C2B07A15E00F94E7C /* ReservationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		43667BDE2AFEACBB006917C5 /* ReservationUITests */ = {
+		437BAE852B07A15E00F94E7C /* ReservationUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43667BEF2AFEACBB006917C5 /* Build configuration list for PBXNativeTarget "ReservationUITests" */;
+			buildConfigurationList = 437BAE962B07A15E00F94E7C /* Build configuration list for PBXNativeTarget "ReservationUITests" */;
 			buildPhases = (
-				43667BDB2AFEACBB006917C5 /* Sources */,
-				43667BDC2AFEACBB006917C5 /* Frameworks */,
-				43667BDD2AFEACBB006917C5 /* Resources */,
+				437BAE822B07A15E00F94E7C /* Sources */,
+				437BAE832B07A15E00F94E7C /* Frameworks */,
+				437BAE842B07A15E00F94E7C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				43667BE12AFEACBB006917C5 /* PBXTargetDependency */,
+				437BAE882B07A15E00F94E7C /* PBXTargetDependency */,
 			);
 			name = ReservationUITests;
 			productName = ReservationUITests;
-			productReference = 43667BDF2AFEACBB006917C5 /* ReservationUITests.xctest */;
+			productReference = 437BAE862B07A15E00F94E7C /* ReservationUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		43667BBD2AFEACBA006917C5 /* Project object */ = {
+		437BAE642B07A15B00F94E7C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
-					43667BC42AFEACBA006917C5 = {
+					437BAE6B2B07A15C00F94E7C = {
 						CreatedOnToolsVersion = 14.1;
 					};
-					43667BD42AFEACBB006917C5 = {
+					437BAE7B2B07A15E00F94E7C = {
 						CreatedOnToolsVersion = 14.1;
-						TestTargetID = 43667BC42AFEACBA006917C5;
+						TestTargetID = 437BAE6B2B07A15C00F94E7C;
 					};
-					43667BDE2AFEACBB006917C5 = {
+					437BAE852B07A15E00F94E7C = {
 						CreatedOnToolsVersion = 14.1;
-						TestTargetID = 43667BC42AFEACBA006917C5;
+						TestTargetID = 437BAE6B2B07A15C00F94E7C;
 					};
 				};
 			};
-			buildConfigurationList = 43667BC02AFEACBA006917C5 /* Build configuration list for PBXProject "Reservation" */;
+			buildConfigurationList = 437BAE672B07A15B00F94E7C /* Build configuration list for PBXProject "Reservation" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -233,36 +223,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 43667BBC2AFEACB9006917C5;
-			productRefGroup = 43667BC62AFEACBA006917C5 /* Products */;
+			mainGroup = 437BAE632B07A15B00F94E7C;
+			productRefGroup = 437BAE6D2B07A15C00F94E7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				43667BC42AFEACBA006917C5 /* Reservation */,
-				43667BD42AFEACBB006917C5 /* ReservationTests */,
-				43667BDE2AFEACBB006917C5 /* ReservationUITests */,
+				437BAE6B2B07A15C00F94E7C /* Reservation */,
+				437BAE7B2B07A15E00F94E7C /* ReservationTests */,
+				437BAE852B07A15E00F94E7C /* ReservationUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		43667BC32AFEACBA006917C5 /* Resources */ = {
+		437BAE6A2B07A15C00F94E7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43667BD02AFEACBB006917C5 /* Preview Assets.xcassets in Resources */,
-				43667BCD2AFEACBB006917C5 /* Assets.xcassets in Resources */,
+				437BAE772B07A15D00F94E7C /* Preview Assets.xcassets in Resources */,
+				437BAE742B07A15D00F94E7C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43667BD32AFEACBB006917C5 /* Resources */ = {
+		437BAE7A2B07A15E00F94E7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43667BDD2AFEACBB006917C5 /* Resources */ = {
+		437BAE842B07A15E00F94E7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,50 +262,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		43667BC12AFEACBA006917C5 /* Sources */ = {
+		437BAE682B07A15C00F94E7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43667BCB2AFEACBA006917C5 /* ContentView.swift in Sources */,
-				43415A9C2B060D19002541AB /* Reservation.swift in Sources */,
-				43667BC92AFEACBA006917C5 /* ReservationApp.swift in Sources */,
+				437BAEA02B07A28400F94E7C /* ReservationModel.swift in Sources */,
+				437BAE9E2B07A22700F94E7C /* ReservationListView.swift in Sources */,
+				437BAEA22B07A2B600F94E7C /* ReservationService.swift in Sources */,
+				437BAEA42B07A2E700F94E7C /* ReservationViewModel.swift in Sources */,
+				437BAE702B07A15C00F94E7C /* ReservationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43667BD12AFEACBB006917C5 /* Sources */ = {
+		437BAE782B07A15E00F94E7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43667BDA2AFEACBB006917C5 /* ReservationTests.swift in Sources */,
+				437BAE812B07A15E00F94E7C /* ReservationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43667BDB2AFEACBB006917C5 /* Sources */ = {
+		437BAE822B07A15E00F94E7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43667BE42AFEACBB006917C5 /* ReservationUITests.swift in Sources */,
-				43667BE62AFEACBB006917C5 /* ReservationUITestsLaunchTests.swift in Sources */,
+				437BAE8B2B07A15E00F94E7C /* ReservationUITests.swift in Sources */,
+				437BAE8D2B07A15E00F94E7C /* ReservationUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		43667BD72AFEACBB006917C5 /* PBXTargetDependency */ = {
+		437BAE7E2B07A15E00F94E7C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43667BC42AFEACBA006917C5 /* Reservation */;
-			targetProxy = 43667BD62AFEACBB006917C5 /* PBXContainerItemProxy */;
+			target = 437BAE6B2B07A15C00F94E7C /* Reservation */;
+			targetProxy = 437BAE7D2B07A15E00F94E7C /* PBXContainerItemProxy */;
 		};
-		43667BE12AFEACBB006917C5 /* PBXTargetDependency */ = {
+		437BAE882B07A15E00F94E7C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43667BC42AFEACBA006917C5 /* Reservation */;
-			targetProxy = 43667BE02AFEACBB006917C5 /* PBXContainerItemProxy */;
+			target = 437BAE6B2B07A15C00F94E7C /* Reservation */;
+			targetProxy = 437BAE872B07A15E00F94E7C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		43667BE72AFEACBB006917C5 /* Debug */ = {
+		437BAE8E2B07A15E00F94E7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -375,7 +367,7 @@
 			};
 			name = Debug;
 		};
-		43667BE82AFEACBB006917C5 /* Release */ = {
+		437BAE8F2B07A15E00F94E7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -429,7 +421,7 @@
 			};
 			name = Release;
 		};
-		43667BEA2AFEACBB006917C5 /* Debug */ = {
+		437BAE912B07A15E00F94E7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -457,7 +449,7 @@
 			};
 			name = Debug;
 		};
-		43667BEB2AFEACBB006917C5 /* Release */ = {
+		437BAE922B07A15E00F94E7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -485,7 +477,7 @@
 			};
 			name = Release;
 		};
-		43667BED2AFEACBB006917C5 /* Debug */ = {
+		437BAE942B07A15E00F94E7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -504,7 +496,7 @@
 			};
 			name = Debug;
 		};
-		43667BEE2AFEACBB006917C5 /* Release */ = {
+		437BAE952B07A15E00F94E7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -523,7 +515,7 @@
 			};
 			name = Release;
 		};
-		43667BF02AFEACBB006917C5 /* Debug */ = {
+		437BAE972B07A15E00F94E7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -540,7 +532,7 @@
 			};
 			name = Debug;
 		};
-		43667BF12AFEACBB006917C5 /* Release */ = {
+		437BAE982B07A15E00F94E7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -560,43 +552,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		43667BC02AFEACBA006917C5 /* Build configuration list for PBXProject "Reservation" */ = {
+		437BAE672B07A15B00F94E7C /* Build configuration list for PBXProject "Reservation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43667BE72AFEACBB006917C5 /* Debug */,
-				43667BE82AFEACBB006917C5 /* Release */,
+				437BAE8E2B07A15E00F94E7C /* Debug */,
+				437BAE8F2B07A15E00F94E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43667BE92AFEACBB006917C5 /* Build configuration list for PBXNativeTarget "Reservation" */ = {
+		437BAE902B07A15E00F94E7C /* Build configuration list for PBXNativeTarget "Reservation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43667BEA2AFEACBB006917C5 /* Debug */,
-				43667BEB2AFEACBB006917C5 /* Release */,
+				437BAE912B07A15E00F94E7C /* Debug */,
+				437BAE922B07A15E00F94E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43667BEC2AFEACBB006917C5 /* Build configuration list for PBXNativeTarget "ReservationTests" */ = {
+		437BAE932B07A15E00F94E7C /* Build configuration list for PBXNativeTarget "ReservationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43667BED2AFEACBB006917C5 /* Debug */,
-				43667BEE2AFEACBB006917C5 /* Release */,
+				437BAE942B07A15E00F94E7C /* Debug */,
+				437BAE952B07A15E00F94E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43667BEF2AFEACBB006917C5 /* Build configuration list for PBXNativeTarget "ReservationUITests" */ = {
+		437BAE962B07A15E00F94E7C /* Build configuration list for PBXNativeTarget "ReservationUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43667BF02AFEACBB006917C5 /* Debug */,
-				43667BF12AFEACBB006917C5 /* Release */,
+				437BAE972B07A15E00F94E7C /* Debug */,
+				437BAE982B07A15E00F94E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 43667BBD2AFEACBA006917C5 /* Project object */;
+	rootObject = 437BAE642B07A15B00F94E7C /* Project object */;
 }
