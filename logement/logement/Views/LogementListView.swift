@@ -1,192 +1,198 @@
 import SwiftUI
 import MapKit
-
+import UserNotifications
 struct LogementListView: View {
     
     @ObservedObject var viewModel: LogementViewModel
-    @State private var isRefreshing = false
-    @State private var scrollToTop: Bool = false
-    enum Tab {
-            case logements, payment, reservation, reclame
-        }
-    
-    var body: some View {
-        
-            NavigationView {
-                
-                VStack {
-                    List {
-                        ForEach(viewModel.logements) { logement in
-                            NavigationLink(destination: LogementDetailView(logement: logement)) {
-                                VStack(alignment: .leading) {
-                                    Text("Titre: \(logement.titre)")
-                                    Text("Description: \(logement.description)")
-                                    Text("Nom: \(logement.nom)")
-                                    Text("Nombre de Chambres: \(logement.nombreChambre)")
-                                    Text("Prix: \(logement.prix)")
-                                    Text("Contact: \(logement.contact)")
-                                    Text("Lieu: \(logement.lieu)")
-                                }
-                            }
-                        }
-                        .onDelete { indexSet in
-                            guard let index = indexSet.first else { return }
-                            let logementToDelete = viewModel.logements[index]
-                            viewModel.deleteLogement(logementID: logementToDelete.id)
-                        }
-                    }
-                    .navigationBarTitle("")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            HStack {
-                                Button(action: {
-                                    // Handle action when home icon is tapped
-                                }) {
-                                    Image(systemName: "house.fill")
-                                }
-                                Text("StuStay")
-                                    .foregroundColor(.cyan)
-                                    .padding(.horizontal, 80)
-                            }
-                        }
-                    }
-                    .refreshable {
-                        viewModel.fetchLogements()
-                    }
-                    .disabled(isRefreshing)
-                }
-                .navigationBarItems(leading: Spacer(), trailing:
-                    NavigationLink(destination: AddLogementView(lv: viewModel)) {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title)
-                            .foregroundColor(.cyan)
-                    }
-                )
-                .tabItem {
-                    Label("Logements", systemImage: "house.fill")
-                }
-                .tag(Tab.logements)
-                .tabItem {
-                    Label("Payment", systemImage: "creditcard.fill")
-                }
-                .tag(Tab.payment)
-                .tabItem {
-                    Label("Reservation", systemImage: "calendar.circle.fill")
-                }
-                .tag(Tab.reservation)
-                .tabItem {
-                    Label("Reclame", systemImage: "megaphone.fill")
-                }
-                .tag(Tab.reclame)
-               
-            }
-           
+       @State private var isRefreshing = false
+       @State private var scrollToTop: Bool = false
 
-        }
-    
-    }
+       enum Tab {
+           case logements, payment, reservation, reclame
+       }
+       
+       var body: some View {
+           NavigationView {
+               VStack {
+                   List {
+                       ForEach(viewModel.logements) { logement in
+                           NavigationLink(destination: LogementDetailView(logement: logement)) {
+                               LogementCardView(logement: logement)
+                           }
+                       }
+                       .onDelete { indexSet in
+                           guard let index = indexSet.first else { return }
+                           let logementToDelete = viewModel.logements[index]
+                           viewModel.deleteLogement(logementID: logementToDelete.id)
+                       }
+                   }
+                   .navigationBarTitle("")
+                   .toolbar {
+                       ToolbarItem(placement: .navigationBarLeading) {
+                           HStack {
+                               Button(action: {
+                                   // Handle action when home icon is tapped
+                               }) {
+                                   Image(systemName: "house.fill")
+                               }
+                               Text("StuStay")
+                                   .foregroundColor(.cyan)
+                                   .padding(.horizontal, 80)
+                           }
+                       }
+                   }
+                   .refreshable {
+                       viewModel.fetchLogements()
+                   }
+                   .disabled(isRefreshing)
+                   
+                   Spacer()
+                   
+                   // Your tab bar and navigation link for adding a new logement
+                   // ...
+               }
+               .navigationBarItems(leading: Spacer(), trailing:
+                   NavigationLink(destination: AddLogementView(lv: viewModel)) {
+                       Image(systemName: "plus.circle.fill")
+                           .font(.title)
+                           .foregroundColor(.cyan)
+                   }
+               )
+               .tabItem {
+                   Label("Logements", systemImage: "house.fill")
+               }
+               .tag(Tab.logements)
+               .tabItem {
+                   Label("Payment", systemImage: "creditcard.fill")
+               }
+               .tag(Tab.payment)
+               .tabItem {
+                   Label("Reservation", systemImage: "calendar.circle.fill")
+               }
+               .tag(Tab.reservation)
+               .tabItem {
+                   Label("Reclame", systemImage: "megaphone.fill")
+               }
+               .tag(Tab.reclame)
+           }
+       }
+   }
 
 
 
 struct LogementDetailView: View {
+    @State private var isFavorite = false
+
     var logement: Logement
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                Image("your_placeholder_image")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .clipped()
-                
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(logement.titre ?? "")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                    
-                    Text(logement.description ?? "")
-                        .font(.body)
-                        .foregroundColor(.gray)
-                        .lineLimit(nil) // Allow multiline description
-                    
-                    Divider()
-                    
-                    Text("Details")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                    
-                    Text("Nombre de Chambres: \(logement.nombreChambre)")
-                        .font(.body)
-                        .foregroundColor(.gray)
-                    
-                    Text("Prix: \(logement.prix) TND")
-                        .font(.body)
-                        .foregroundColor(.gray)
-                    
-                    Divider()
-                    
-                    Text("Contact")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                    
-                    Text(logement.contact ?? "")
-                        .font(.body)
-                        .foregroundColor(.gray)
-                    
-                    Divider()
-                }
-                .padding(16)
-                
-                Spacer() // Add space at the bottom
-                
-                HStack(spacing: 16) {
-                    // Payer Button
-                    Button(action: {
-                        // Add your payment logic here
-                    }) {
-                        Text("Payer")
-                            .font(.headline)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                            .shadow(color: .blue, radius: 5, x: 0, y: 5)
-                    }
-                    
-                    // Share Button
-                    Button(action: {
-                        shareLogement()
-                    }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.headline)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.green)
-                            .cornerRadius(10)
-                    }
-                    
-                    // Edit Button
-                    NavigationLink(destination: EditLogementView(logement: logement)) {
-                        Image(systemName: "pencil")
-                            .font(.headline)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.orange)
-                            .cornerRadius(10)
-                    }
-                }
-                .padding(.horizontal, 16)
-            }
-        }
-        .navigationBarTitle("StuStay", displayMode: .inline)
-        .foregroundColor(.white)
-        .background(Color(.sRGB, red: 10/255, green: 10/255, blue: 40/255, opacity: 1.0))
-        .edgesIgnoringSafeArea(.all)
-    }
+           ScrollView {
+               VStack(alignment: .leading, spacing: 16) {
+                   Image("your_placeholder_image")
+                       .resizable()
+                       .scaledToFill()
+                       .frame(height: 200)
+                       .clipped()
+
+                   VStack(alignment: .leading, spacing: 10) {
+                       Text(logement.titre ?? "")
+                           .font(.title)
+                           .fontWeight(.bold)
+                           .foregroundColor(.cyan)
+
+                       Text(logement.description ?? "")
+                           .font(.body)
+                           .foregroundColor(.gray)
+                           .lineLimit(nil) // Allow multiline description
+
+                       Divider()
+
+                       Text("Details")
+                           .font(.title)
+                           .fontWeight(.bold)
+                           .foregroundColor(.cyan)
+
+                       Text("Nombre de Chambres: \(logement.nombreChambre)")
+                           .font(.body)
+                           .foregroundColor(.gray)
+
+                       Text("Prix: \(logement.prix) TND")
+                           .font(.body)
+                           .foregroundColor(.gray)
+
+                       Divider()
+
+                       Text("Contact")
+                           .font(.title)
+                           .fontWeight(.bold)
+                           .foregroundColor(.cyan)
+
+                       Text(logement.contact ?? "")
+                           .font(.body)
+                           .foregroundColor(.gray)
+
+                       Divider()
+                   }
+                   .padding(16)
+
+                   Spacer() // Add space at the bottom
+
+                   HStack(spacing: 16) {
+                       // Payer Button
+                       Button(action: {
+                           // Add your payment logic here
+                       }) {
+                           Text("Payer")
+                               .font(.headline)
+                               .padding()
+                               .foregroundColor(.white)
+                               .background(Color.blue)
+                               .cornerRadius(10)
+                               .shadow(color: .blue, radius: 5, x: 0, y: 5)
+                       }
+
+                       // Share Button
+                       Button(action: {
+                           shareLogement()
+                       }) {
+                           Image(systemName: "square.and.arrow.up")
+                               .font(.headline)
+                               .padding()
+                               .foregroundColor(.white)
+                               .background(Color.green)
+                               .cornerRadius(10)
+                       }
+
+                       // Favorite Button
+                       Button(action: {
+                           isFavorite.toggle()
+                       }) {
+                           Image(systemName: isFavorite ? "heart.fill" : "heart")
+                               .font(.headline)
+                               .padding()
+                               .foregroundColor(.cyan)
+                               .background(Color.clear)
+                               .cornerRadius(10)
+                       }
+
+                       // Edit Button
+                       NavigationLink(destination: EditLogementView(logement: logement)) {
+                           Image(systemName: "pencil")
+                               .font(.headline)
+                               .padding()
+                               .foregroundColor(.white)
+                               .background(Color.orange)
+                               .cornerRadius(10)
+                       }
+                   }
+                   .padding(.horizontal, 16)
+               }
+           }
+           .navigationBarTitle("StuStay", displayMode: .inline)
+           .foregroundColor(.white)
+           .background(Color.gray.opacity(0.2))
+           .edgesIgnoringSafeArea(.all)
+       }
 
     func shareLogement() {
         let logementTitle = logement.titre ?? ""
@@ -333,6 +339,7 @@ struct AddLogementView: View {
                     Button(action: {
                         if validateInputs() {
                             lv.addLogement()
+                            scheduleNotification()
                         } else {
                             showAlert = true
                         }
@@ -378,4 +385,20 @@ struct AddLogementView: View {
         return true
     }
 }
+private func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Logement Added"
+        content.body = "Your logement has been successfully added."
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+
+        let request = UNNotificationRequest(identifier: "logementAdded", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            }
+        }
+    }
+
 
