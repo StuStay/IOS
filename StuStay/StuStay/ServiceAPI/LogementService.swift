@@ -1,10 +1,3 @@
-//
-//  LogementService.swift
-//  StuStay
-//
-//  Created by yassine on 22/11/2023.
-//
-
 import Foundation
 
 enum LogementError: Error {
@@ -147,5 +140,3 @@ class LogementService {
         task.resume()
     }
 }
-
-

@@ -72,7 +72,10 @@ struct ReservationListView: View {
             }
             .navigationBarItems(trailing:
                 NavigationLink(destination: AddReservationView(rv: viewModel)) {
-                    Text("Add")
+                Image(systemName: "plus.circle")
+                    .imageScale(.large) // Set the image scale to large
+                    .foregroundColor(.blue) // Set the icon color to blue
+                    .padding(.horizontal, 20)
                 }
             )
         }
@@ -95,47 +98,77 @@ struct AddReservationView: View {
 
     // Valid locations
     let validLocations = ["Tunis", "Ariana", "Ben Arous", "Manouba", "Bizerte", "Nabeul", "Beja", "Jendouba", "Zaghouan", "Siliana", "Kef", "Sousse", "Monastir", "Mahdia", "Kasserine", "Sidi Bouzid", "Kairouan", "Gafsa", "Sfax", "Gabes", "Medenine", "Tozeur", "Kebili", "Tataouine"]
+
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Name")) {
-                    TextField("Enter your name", text: $rv.name)
-                    
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .foregroundColor(.blue)
+                        TextField("Enter your name", text: $rv.name)
+                    }
                 }
 
                 Section(header: Text("Location")) {
-                    TextField("City/Area", text: $rv.location)
+                    HStack {
+                        Image(systemName: "mappin.circle.fill")
+                            .foregroundColor(.blue)
+                        TextField("City/Area", text: $rv.location)
+                    }
                 }
 
                 Section(header: Text("Gender")) {
-                    Picker("Gender", selection: $rv.selectedgender) {
-                        Text("Homme").tag("Homme")
-                        Text("Femme").tag("Femme")
+                    HStack {
+                        Image(systemName: "person.3.fill")
+                            .foregroundColor(.blue)
+                        Picker("Gender", selection: $rv.selectedgender) {
+                            Text("Homme").tag("Homme")
+                            Text("Femme").tag("Femme")
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
                     }
-                    .pickerStyle(SegmentedPickerStyle())
                 }
 
                 Section(header: Text("Check In")) {
-                    DatePicker("Check In", selection: $rv.checkInDate, displayedComponents: .date)
+                    HStack {
+                        Image(systemName: "calendar.circle.fill")
+                            .foregroundColor(.blue)
+                        DatePicker("Check In", selection: $rv.checkInDate, displayedComponents: .date)
+                    }
                 }
 
                 Section(header: Text("Check Out")) {
-                    DatePicker("Check Out", selection: $rv.checkOutDate, displayedComponents: .date)
+                    HStack {
+                        Image(systemName: "calendar.circle.fill")
+                            .foregroundColor(.blue)
+                        DatePicker("Check Out", selection: $rv.checkOutDate, displayedComponents: .date)
+                    }
                 }
 
                 Section(header: Text("Phone")) {
-                    TextField("Your phone", text: $rv.phone)
-                        .keyboardType(.phonePad)
+                    HStack {
+                        Image(systemName: "phone.circle.fill")
+                            .foregroundColor(.blue)
+                        TextField("Your phone", text: $rv.phone)
+                            .keyboardType(.phonePad)
+                    }
                 }
 
                 Section(header: Text("Number of Roommates")) {
-                    Stepper(value: $rv.numberOfRoommates, in: 1...10) {
-                        Text("Number of Roommates: \(rv.numberOfRoommates)")
+                    HStack {
+                        Image(systemName: "person.2.fill")
+                            .foregroundColor(.blue)
+                        Stepper(value: $rv.numberOfRoommates, in: 1...10) {
+                            Text("Number of Roommates: \(rv.numberOfRoommates)")
+                        }
                     }
                 }
 
                 Section(header: Text("Price")) {
                     HStack {
+                        Image(systemName: "dollarsign.circle")
+                            .foregroundColor(.blue)
                         TextField("Min", text: $rv.minPrice)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.numberPad)
@@ -147,56 +180,55 @@ struct AddReservationView: View {
                 }
 
                 Button(action: {
-                                if isValidInput() {
-                                    rv.addReservation()
-                                } else {
-                                    // Show alert for invalid inputs
-                                    showingAlert = true
-                                }
-                            }) {
-                                Text("ADD")
-                                    .foregroundColor(.white)
-                                    .fontWeight(.bold)
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
-                            }
-                        }
-                        .navigationTitle("Add Reservation")
-                        .alert(isPresented: $showingAlert) {
-                            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-                        }
+                    if isValidInput() {
+                        rv.addReservation()
+                    } else {
+                        // Show alert for invalid inputs
+                        showingAlert = true
                     }
-                }
-
-                // Function to check if inputs are valid
-                private func isValidInput() -> Bool {
-                    if rv.name.isEmpty || rv.location.isEmpty || rv.phone.isEmpty || rv.minPrice.isEmpty || rv.maxPrice.isEmpty {
-                        alertTitle = "Error"
-                        alertMessage = "Please fill in all the required fields."
-                        return false
-                    }
-
-                    if !validLocations.contains(rv.location) {
-                        alertTitle = "Error"
-                        alertMessage = "Please enter a valid location from the provided list."
-                        return false
-                    }
-
-                    if rv.phone.count != 8 || !rv.phone.allSatisfy({ $0.isNumber }) {
-                        alertTitle = "Error"
-                        alertMessage = "Please enter a valid 8-digit phone number."
-                        return false
-                    }
-
-                    if let minPrice = Double(rv.minPrice), let maxPrice = Double(rv.maxPrice), minPrice > maxPrice {
-                        alertTitle = "Error"
-                        alertMessage = "Min price cannot be greater than Max price."
-                        return false
-                    }
-
-                    return true
+                }) {
+                    Text("ADD")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
                 }
             }
+            .navigationTitle("Add Reservation")
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            }
+        }
+    }
 
+    // Function to check if inputs are valid
+    private func isValidInput() -> Bool {
+        if rv.name.isEmpty || rv.location.isEmpty || rv.phone.isEmpty || rv.minPrice.isEmpty || rv.maxPrice.isEmpty {
+            alertTitle = "Error"
+            alertMessage = "Please fill in all the required fields."
+            return false
+        }
+
+        if !validLocations.contains(rv.location) {
+            alertTitle = "Error"
+            alertMessage = "Please enter a valid location from the provided list."
+            return false
+        }
+
+        if rv.phone.count != 8 || !rv.phone.allSatisfy({ $0.isNumber }) {
+            alertTitle = "Error"
+            alertMessage = "Please enter a valid 8-digit phone number."
+            return false
+        }
+
+        if let minPrice = Double(rv.minPrice), let maxPrice = Double(rv.maxPrice), minPrice > maxPrice {
+            alertTitle = "Error"
+            alertMessage = "Min price cannot be greater than Max price."
+            return false
+        }
+
+        return true
+    }
+}

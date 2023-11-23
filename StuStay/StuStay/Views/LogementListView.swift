@@ -10,6 +10,9 @@ import SwiftUI
 struct LogementListView: View {
     @ObservedObject var viewModel: LogementViewModel
     @State private var isRefreshing = false
+    @ObservedObject var paymentViewModel: PaymentViewModel
+    @ObservedObject var reclamationViewModel: ReclamationViewModel
+    @ObservedObject var reservationViewModel: ReservationViewModel
 
     var body: some View {
         NavigationView {
@@ -32,26 +35,81 @@ struct LogementListView: View {
                         viewModel.deleteLogement(logementID: logementToDelete.id)
                     }
                 }
-                .navigationTitle("Logements")
                 .refreshable {
                     viewModel.fetchLogements()
                 }
                 .disabled(isRefreshing)
-            }
-            .navigationBarItems(trailing:
-                NavigationLink(destination: AddLogementView(lv: viewModel)) {
-                    Text("Add")
+
+                Spacer()
+
+                HStack {
+                    NavigationLink(destination: AddLogementView(lv: viewModel)) {
+                        Image(systemName: "plus.circle")
+                            .imageScale(.large) // Set the image scale to large
+                            .foregroundColor(.blue) // Set the icon color to blue
+                            .padding(.horizontal, 20) // Add horizontal padding for better spacing
+                    }
+                    .overlay(
+                        Divider(), alignment: .trailing // Add a divider to the trailing edge of the "Add" icon
+                    )
+
+                    NavigationLink(destination: PaymentListView(viewModel: paymentViewModel)) {
+                        Image(systemName: "dollarsign.circle")
+                            .imageScale(.large) // Set the image scale to large
+                            .foregroundColor(.blue) // Set the icon color to blue
+                            .padding(.horizontal, 20) // Add horizontal padding for better spacing
+                    }
+                    .overlay(
+                        Divider(), alignment: .trailing // Add a divider to the trailing edge of the "Payment" icon
+                    )
+
+                    NavigationLink(destination: ReservationListView(viewModel: reservationViewModel)) {
+                        Image(systemName: "doc.circle") // Change to paper icon
+                            .imageScale(.large) // Set the image scale to large
+                            .foregroundColor(.blue) // Set the icon color to blue
+                            .padding(.horizontal, 20) // Add horizontal padding for better spacing
+                    }
+                    .overlay(
+                        Divider(), alignment: .trailing // Add a divider to the trailing edge of the "Reservation" icon
+                    )
+
+                    NavigationLink(destination: ListeReclamationView(viewModel: reclamationViewModel)) {
+                        Image(systemName: "gearshape.circle") // Change to setting icon
+                            .imageScale(.large) // Set the image scale to large
+                            .foregroundColor(.blue) // Set the icon color to blue
+                            .padding(.horizontal, 20) // Add horizontal padding for better spacing
+                    }
                 }
-            )
+            }
+            
+
+            // This empty Text view is added to trigger the navigation bar title update
+            // without it, the navigation bar title might not show up immediately
+
         }
     }
 }
 
+
+
 struct LogementListView_Previews: PreviewProvider {
     static var previews: some View {
-        LogementListView(viewModel: LogementViewModel())
+        // Create instances of your view models
+        let logementViewModel = LogementViewModel()
+        let paymentViewModel = PaymentViewModel()
+        let reclamationViewModel = ReclamationViewModel()
+        let reservationViewModel = ReservationViewModel()
+
+        // Pass the view models to LogementListView
+        LogementListView(
+            viewModel: logementViewModel,
+            paymentViewModel: paymentViewModel,
+            reclamationViewModel: reclamationViewModel,
+            reservationViewModel: reservationViewModel
+        )
     }
 }
+
 
 struct AddLogementView: View {
     @ObservedObject var lv: LogementViewModel
@@ -60,35 +118,63 @@ struct AddLogementView: View {
         NavigationView {
             List {
                 Section(header: Text("Titre")) {
-                    TextField("Enter le titre", text: $lv.titre)
+                    HStack {
+                        Image(systemName: "pencil.circle.fill")
+                            .foregroundColor(.blue)
+                        TextField("Enter le titre", text: $lv.titre)
+                    }
                 }
 
                 Section(header: Text("Description")) {
-                    TextField("Description du logement", text: $lv.description)
+                    HStack {
+                        Image(systemName: "text.bubble.fill")
+                            .foregroundColor(.blue)
+                        TextField("Description du logement", text: $lv.description)
+                    }
                 }
 
                 Section(header: Text("Nom")) {
-                    TextField("Nom du logement", text: $lv.nom)
+                    HStack {
+                        Image(systemName: "person.circle.fill")
+                            .foregroundColor(.blue)
+                        TextField("Nom du logement", text: $lv.nom)
+                    }
                 }
 
                 Section(header: Text("Nombre de Chambres")) {
-                    Stepper(value: $lv.nombreChambre, in: 1...10) {
-                        Text("Nombre de Chambres: \(lv.nombreChambre)")
+                    HStack {
+                        Image(systemName: "bed.double.fill")
+                            .foregroundColor(.blue)
+                        Stepper(value: $lv.nombreChambre, in: 1...10) {
+                            Text("Nombre de Chambres: \(lv.nombreChambre)")
+                        }
                     }
                 }
 
                 Section(header: Text("Prix")) {
-                    TextField("Prix du logement", value: $lv.prix, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
+                    HStack {
+                        Image(systemName: "creditcard.fill")
+                            .foregroundColor(.blue)
+                        TextField("Prix du logement", value: $lv.prix, formatter: NumberFormatter())
+                            .keyboardType(.numberPad)
+                    }
                 }
 
                 Section(header: Text("Contact")) {
-                    TextField("Contact du logement", text: $lv.contact)
-                        .keyboardType(.phonePad)
+                    HStack {
+                        Image(systemName: "phone.circle.fill")
+                            .foregroundColor(.blue)
+                        TextField("Contact du logement", text: $lv.contact)
+                            .keyboardType(.phonePad)
+                    }
                 }
 
                 Section(header: Text("Lieu")) {
-                    TextField("Lieu du logement", text: $lv.lieu)
+                    HStack {
+                        Image(systemName: "mappin.circle.fill")
+                            .foregroundColor(.blue)
+                        TextField("Lieu du logement", text: $lv.lieu)
+                    }
                 }
 
                 Button(action: {
@@ -105,6 +191,6 @@ struct AddLogementView: View {
             }
             .navigationTitle("Add Logement")
         }
+        
     }
 }
-

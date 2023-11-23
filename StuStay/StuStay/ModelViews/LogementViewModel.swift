@@ -4,7 +4,6 @@
 //
 //  Created by yassine on 22/11/2023.
 //
-
 import Foundation
 import Combine
 
@@ -77,5 +76,6 @@ class LogementViewModel: ObservableObject {
            }
        }
     }
+
 
 

@@ -40,7 +40,10 @@ struct ListeReclamationView: View {
             }
             .navigationBarItems(trailing:
                 NavigationLink(destination: AddReclamationView(rv:viewModel)) {
-                    Text("Add")
+                Image(systemName: "plus.circle")
+                    .imageScale(.large) // Set the image scale to large
+                    .foregroundColor(.blue) // Set the icon color to blue
+                    .padding(.horizontal, 20)
                 }
             )
         }
@@ -55,15 +58,24 @@ struct ListeReclamationView_Previews: PreviewProvider {
 
 struct AddReclamationView: View {
     @ObservedObject var rv: ReclamationViewModel
+
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Title")) {
-                    TextField("Enter title", text: $rv.title)
+                    HStack {
+                        Image(systemName: "pencil.circle.fill")
+                            .foregroundColor(.blue)
+                        TextField("Enter title", text: $rv.title)
+                    }
                 }
 
                 Section(header: Text("Description")) {
-                    TextField("Entrer description",text: $rv.description)
+                    HStack {
+                        Image(systemName: "text.bubble.fill")
+                            .foregroundColor(.blue)
+                        TextField("Enter description", text: $rv.description)
+                    }
                 }
 
                 Section(header: Text("Type")) {
@@ -73,6 +85,7 @@ struct AddReclamationView: View {
                         Text("Other").tag("Other")
                     }
                     .pickerStyle(SegmentedPickerStyle())
+                    .padding()
                 }
 
                 Section(header: Text("State")) {
@@ -82,6 +95,7 @@ struct AddReclamationView: View {
                         Text("Resolved").tag("Resolved")
                     }
                     .pickerStyle(SegmentedPickerStyle())
+                    .padding()
                 }
 
                 Section(header: Text("Severity")) {
@@ -91,6 +105,7 @@ struct AddReclamationView: View {
                         Text("High").tag("High")
                     }
                     .pickerStyle(SegmentedPickerStyle())
+                    .padding()
                 }
 
                 Button(action: {

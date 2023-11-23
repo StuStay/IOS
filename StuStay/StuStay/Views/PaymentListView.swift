@@ -45,12 +45,17 @@ struct PaymentListView: View {
                 }
                 .disabled(isRefreshing) // Disable the list while refreshing
             }
+            
             .navigationBarItems(trailing:
                 NavigationLink(destination: AddPaymentView(paymentViewModel: viewModel)) {
-                    Text("Add")
+                Image(systemName: "plus.circle")
+                    .imageScale(.large) // Set the image scale to large
+                    .foregroundColor(.blue) // Set the icon color to blue
+                    .padding(.horizontal, 20)
                 }
             )
         }
+        
     }
 }
 
@@ -62,41 +67,55 @@ struct PaymentListView_Previews: PreviewProvider {
 
 struct AddPaymentView: View {
     @ObservedObject var paymentViewModel: PaymentViewModel
-    @State private var showCreditCardAlert = false
     @State private var navigateToCreditCardForm = false
     @Environment(\.presentationMode) var presentationMode
-    @State private var showAlert = false
 
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Amount")) {
-                    TextField("Enter amount", text: Binding(
-                        get: { "\(paymentViewModel.amount)" },
-                        set: {
-                            if let newValue = Int($0) {
-                                paymentViewModel.amount = newValue
+                    HStack {
+                        Image(systemName: "dollarsign.circle.fill")
+                            .foregroundColor(.blue)
+                        TextField("Enter amount", text: Binding(
+                            get: { "\(paymentViewModel.amount)" },
+                            set: {
+                                if let newValue = Int($0) {
+                                    paymentViewModel.amount = newValue
+                                }
                             }
-                        }
-                    ))
-                    .keyboardType(.numberPad)
+                        ))
+                        .keyboardType(.numberPad)
+                    }
                 }
 
                 Section(header: Text("Date")) {
-                    DatePicker("Select date", selection: $paymentViewModel.date, displayedComponents: .date)
+                    HStack {
+                        Image(systemName: "calendar.circle.fill")
+                            .foregroundColor(.blue)
+                        DatePicker("Select date", selection: $paymentViewModel.date, displayedComponents: .date)
+                    }
                 }
 
                 Section(header: Text("Payment Method")) {
-                    Picker("Select method", selection: $paymentViewModel.method) {
-                        Text("Credit Card").tag("Credit Card")
-                        Text("Cash").tag("Cash")
+                    HStack {
+                        Image(systemName: "creditcard.fill")
+                            .foregroundColor(.blue)
+                        Picker("Select method", selection: $paymentViewModel.method) {
+                            Text("Credit Card").tag("Credit Card")
+                            Text("Cash").tag("Cash")
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
                     }
-                    .pickerStyle(SegmentedPickerStyle())
                 }
 
                 Section(header: Text("Number of Roommates")) {
-                    Stepper(value: $paymentViewModel.numberOfRoommates, in: 1...10) {
-                        Text("Number of Roommates: \(paymentViewModel.numberOfRoommates)")
+                    HStack {
+                        Image(systemName: "person.2.fill")
+                            .foregroundColor(.blue)
+                        Stepper(value: $paymentViewModel.numberOfRoommates, in: 1...10) {
+                            Text("Number of Roommates: \(paymentViewModel.numberOfRoommates)")
+                        }
                     }
                 }
 
@@ -106,68 +125,61 @@ struct AddPaymentView: View {
                     }
 
                     if paymentViewModel.isRecurringPayment {
-                        Picker("Select Frequency", selection: $paymentViewModel.recurringPaymentFrequency) {
-                            Text("Monthly").tag("Monthly")
-                            Text("Yearly").tag("Yearly")
+                        HStack {
+                            Image(systemName: "clock.arrow.circlepath")
+                                .foregroundColor(.blue)
+                            Picker("Select Frequency", selection: $paymentViewModel.recurringPaymentFrequency) {
+                                Text("Monthly").tag("Monthly")
+                                Text("Yearly").tag("Yearly")
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
                         }
-                        .pickerStyle(SegmentedPickerStyle())
                     }
                 }
 
                 Button(action: {
-                                    if isValidInput() {
-                                        if paymentViewModel.method == "Credit Card" {
-                                            paymentViewModel.addPayment()
-                                            showCreditCardAlert = true
-                                        } else {
-                                            paymentViewModel.addPayment()
-                                            presentationMode.wrappedValue.dismiss()
-                                        }
-                                    }
-                                }) {
-                                    Text("ADD")
-                                        .foregroundColor(.white)
-                                        .fontWeight(.bold)
-                                        .padding()
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color.blue)
-                                        .cornerRadius(10)
-                                }
-                            }
-                            .navigationTitle("Add Payment")
-                            .background(
-                                NavigationLink(
-                                    destination: CreditCardFormView(onDismiss: { navigateToCreditCardForm = false }),
-                                    isActive: $navigateToCreditCardForm
-                                ) {
-                                    EmptyView()
-                                }
-                                .isDetailLink(false)
-                                .hidden()
-                            )
-                            .alert(isPresented: $showAlert) {
-                                Alert(
-                                    title: Text("Invalid Amount"),
-                                    message: Text("Please enter a valid number for the amount."),
-                                    dismissButton: .default(Text("OK"))
-                                )
-                            }
+                    if isValidInputP() {
+                        if paymentViewModel.method == "Credit Card" {
+                            paymentViewModel.addPayment()
+                            navigateToCreditCardForm = true
+                        } else {
+                            paymentViewModel.addPayment()
+                            presentationMode.wrappedValue.dismiss()
                         }
                     }
-
-                    func isValidInput() -> Bool {
-                        guard paymentViewModel.amount > 0 else {
-                            showAlert(title: "Invalid Amount", message: "Please enter a valid amount.")
-                            return false
+                }) {
+                    Text("ADD")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+            }
+            
+            .navigationTitle("Add Payment")
+            .background(
+                Group {
+                    if paymentViewModel.method == "Credit Card" {
+                        NavigationLink(
+                            destination: CreditCardFormView(onDismiss: { navigateToCreditCardForm = false }),
+                            isActive: $navigateToCreditCardForm
+                        ) {
+                            EmptyView()
                         }
-
-                        // Additional validation if needed
-
-                        return true
-                    }
-
-                    func showAlert(title: String, message: String) {
-                        showAlert = true
+                        .isDetailLink(false)
+                        .hidden()
                     }
                 }
+            )
 
+        }
+        
+    }
+
+    func isValidInputP() -> Bool {
+        return paymentViewModel.amount > 0
+        // Additional validation if needed
+    }
+}
